@@ -245,6 +245,23 @@ const SPOTS = [
     officialUrl: 'https://www.interlaken.ch/'
   },
   {
+    id: 'harderkm',
+    name: 'ハーダークルム',
+    nameEn: 'Harder Kulm',
+    city: 'swiss', day: 2, emoji: '🌅',
+    rating: 5,
+    hours: '9:00〜22:00（7月）',
+    ticket: '往復 CHF 42（Swiss Travel Pass割引あり）',
+    ticketType: 'required',
+    duration: '1.5〜2時間',
+    bestTime: '17:00〜20:00（夕日とアルプスのビューが最高）',
+    desc: 'インターラーケン西駅そばの麓駅からケーブルカー約8分、標高1,322m。アイガー・メンヒ・ユングフラウの三山と、トゥーン湖・ブリエンツ湖の二つの湖を同時に見渡せる「二つの湖テラス」が有名。Day 2夕方にハーダークルムへ登り夕景を鑑賞。',
+    photoTip: '展望テラスから二つの湖とアルプス三山を一望。日没1時間前〜直後がゴールデンアワー。手前の木々を前景に入れると奥行きが出る。',
+    trivia: '「ハーダー」とはドイツ語で「硬い岩」の意。展望台のジャコウウシ（ムスクオックス）も人気者。夏の夜はハーダークルムから星空観察もできる。',
+    mapsUrl: 'https://maps.google.com/?q=Harder+Kulm+Interlaken+Switzerland',
+    officialUrl: 'https://www.jungfrau.ch/en-gb/harder-kulm/'
+  },
+  {
     id: 'grindelwald',
     name: 'グリンデルワルト',
     nameEn: 'Grindelwald',
@@ -282,7 +299,7 @@ const SPOTS = [
     id: 'jungfraujoch',
     name: 'ユングフラウヨッホ',
     nameEn: 'Jungfraujoch',
-    city: 'swiss', day: 4, emoji: '❄️',
+    city: 'swiss', day: 3, emoji: '❄️',
     rating: 5,
     hours: '年中無休 8:00〜17:00（最終登山便に注意）',
     ticket: 'CHF 135〜165（季節・ルートにより変動）',
@@ -300,7 +317,7 @@ const SPOTS = [
     id: 'rialto',
     name: 'リアルト橋',
     nameEn: 'Rialto Bridge',
-    city: 'venice', day: 5, emoji: '🌉',
+    city: 'venice', day: 4, emoji: '🌉',
     rating: 5,
     hours: '24時間',
     ticket: '無料',
@@ -317,7 +334,7 @@ const SPOTS = [
     id: 'sanmarco',
     name: 'サンマルコ広場',
     nameEn: "St. Mark's Square",
-    city: 'venice', day: 5, emoji: '🎭',
+    city: 'venice', day: 4, emoji: '🎭',
     rating: 5,
     hours: '24時間（夏季の混雑時は入場制限あり）',
     ticket: '無料',
@@ -348,6 +365,23 @@ const SPOTS = [
     officialUrl: 'https://www.basilicasanmarco.it/'
   },
   {
+    id: 'doge',
+    name: 'ドゥカーレ宮殿',
+    nameEn: "Doge's Palace",
+    city: 'venice', day: 5, emoji: '🏛',
+    rating: 5,
+    hours: '9:00〜19:00（毎日）',
+    ticket: '€30（サンマルコ寺院との共通券 €40）',
+    ticketType: 'preorder',
+    duration: '1〜1時間30分',
+    bestTime: '開館直後（9:00〜10:00）',
+    desc: 'ヴェネツィア共和国の政庁兼総督府として9世紀から機能した歴史的建造物。14〜17世紀建造のゴシック様式の外観と、内部を飾るティントレットやパオロ・ヴェロネーゼの巨大絵画が圧巻。有名な「嘆きの橋」を通って牢獄も見学できる。Day 5にサンマルコ寺院と合わせて訪問。',
+    photoTip: 'サンマルコ広場に面したゴシック様式の外観全景が定番。内部の大評議会の間の天井画は広角レンズ推奨。嘆きの橋は運河側から小舟やゴンドラ越しに撮影するのが映える。',
+    trivia: '「嘆きの橋」はドゥカーレ宮殿と牢獄をつなぐ橋。処刑前の囚人が橋の格子から外を見て「嘆いた」ことが名の由来。冒険家カサノバもここから脱獄したと伝わる。',
+    mapsUrl: "https://maps.google.com/?q=Doge's+Palace+Venice+Italy",
+    officialUrl: 'https://palazzoducale.visitmuve.it/'
+  },
+  {
     id: 'gondola',
     name: 'ゴンドラ',
     nameEn: 'Gondola Ride',
@@ -362,6 +396,23 @@ const SPOTS = [
     photoTip: '橋の上からゴンドラを見下ろす定番構図。乗船中に低い橋をくぐる瞬間が絵になる。',
     trivia: 'ゴンドラは全長11m・重さ600kgで、船体が左に傾くよう非対称に設計されている。これにより、1本の艪で真っ直ぐ進むことができる。',
     mapsUrl: 'https://maps.google.com/?q=Gondola+rides+Venice+Italy',
+    officialUrl: null
+  },
+  {
+    id: 'rialto-market',
+    name: 'リアルト市場',
+    nameEn: 'Rialto Market',
+    city: 'venice', day: 5, emoji: '🛒',
+    rating: 4,
+    hours: '月〜土 7:00〜13:00（日曜休）',
+    ticket: '無料',
+    ticketType: 'free',
+    duration: '30〜60分',
+    bestTime: '午前中 8:00〜12:00（市場が最も活気づく時間帯）',
+    desc: 'リアルト橋のすぐそばに広がるベネチア最大の青果・魚介市場。アドリア海の新鮮な魚介類や地元野菜が並び、数百年の歴史を持つ地元の台所。バーカロ（立ち飲み屋）が集まるエリアでもあり、チチェッティとワインで軽くランチが楽しめる。Day 5の15:00に訪問。',
+    photoTip: '色鮮やかな野菜・魚介のアップ写真が映える。市場のにぎわいを広角で切り取るのも◎。魚のアップや市場のおじさんポートレートがSNSで映える。',
+    trivia: 'リアルト市場は9世紀からの歴史を持つ世界最古の市場の一つ。「リアルト」という地名はラテン語の「Rivus Altus（深い水）」が語源。午後には青果・魚介売り場は閉まるため、早めの訪問が鉄則。',
+    mapsUrl: 'https://maps.google.com/?q=Rialto+Market+Venice+Italy',
     officialUrl: null
   },
   /* ----- ROME — Day 6 (Night) ----- */
@@ -880,14 +931,13 @@ function renderScheduleContent() {
 /* ============================================================
    SPOTS FILTER + GRID
    ============================================================ */
-let activeFilter = 'all';
+let activeFilter = 'swiss';
 
 function renderSpotsFilter() {
   const el = document.getElementById('spotsFilter');
   if (!el) return;
 
   const filters = [
-    { key: 'all',    label: 'すべて' },
     { key: 'swiss',  label: '🏔 スイス' },
     { key: 'venice', label: '🎭 ベネチア' },
     { key: 'rome',   label: '🏛 ローマ' },
@@ -931,6 +981,9 @@ const SPOT_PHOTOS = {
   'stpeters':      'https://images.unsplash.com/photo-1540553016722-983e8d234b25?w=800&q=80&fit=crop&crop=center',
   'santangelo':    'https://images.unsplash.com/photo-1579033461380-adb47c3eb938?w=800&q=80&fit=crop&crop=center',
   'bridge':        'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80&fit=crop&crop=center',
+  'harderkm':      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80&fit=crop&crop=center',
+  'doge':          'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80&fit=crop&crop=center',
+  'rialto-market': 'https://images.unsplash.com/photo-1519923834699-ef0b7cde4712?w=800&q=80&fit=crop&crop=center',
 };
 
 function lazyLoadSpotPhotos() {
@@ -1036,7 +1089,7 @@ function renderSpotsGrid() {
 
 function filterSpots() {
   document.querySelectorAll('#spotsGrid .spot-card').forEach(card => {
-    card.classList.toggle('hidden', activeFilter !== 'all' && card.dataset.city !== activeFilter);
+    card.classList.toggle('hidden', card.dataset.city !== activeFilter);
   });
 }
 
@@ -1241,6 +1294,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderScheduleContent();
   renderSpotsFilter();
   renderSpotsGrid();
+  filterSpots();
   lazyLoadSpotPhotos();
   renderMapsTabs();
   renderMapsContent();
