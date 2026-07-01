@@ -1091,17 +1091,6 @@ function initHeroSlideshow() {
 }
 
 /* ============================================================
-   HEADER COMPACT ON SCROLL
-   ============================================================ */
-function initHeader() {
-  const header = document.getElementById('header');
-  if (!header) return;
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('compact', window.scrollY > 80);
-  }, { passive: true });
-}
-
-/* ============================================================
    BOTTOM NAV — ACTIVE SECTION
    ============================================================ */
 function initBottomNav() {
@@ -1165,8 +1154,7 @@ function initSmoothScroll() {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      const headerH = document.getElementById('header')?.offsetHeight || 60;
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerH, behavior: 'smooth' });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
     });
   });
 }
@@ -1186,7 +1174,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderMapsTabs();
   renderMapsContent();
   initHeroSlideshow();
-  initHeader();
   initBottomNav();
   initSmoothScroll();
 
