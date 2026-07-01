@@ -945,7 +945,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: var(--text-3);
   font-size: 10px;
   font-weight: 500;
-  padding: 6px 12px;
+  padding: 6px 7px;
   border-radius: var(--r-sm);
   transition: color .2s, transform .2s var(--ease-spring);
   position: relative;
@@ -974,6 +974,45 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: transform .25s var(--ease-spring);
 }
 .bnav-item.active::after { transform: translateX(-50%) scaleX(1); }
+
+/* ============================================================
+   WEATHER
+   ============================================================ */
+.weather-container { animation: fade-in-sched .35s var(--ease); }
+.weather-source { font-size: 11px; color: var(--text-3); margin-bottom: 16px; }
+.weather-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.weather-card {
+  background: var(--bg-alt);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  padding: 16px 10px;
+  text-align: center;
+}
+.w-date { font-size: 12px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; }
+.w-emoji { font-size: 2.2rem; line-height: 1; margin-bottom: 6px; }
+.w-label { font-size: 11px; color: var(--text-3); margin-bottom: 10px; }
+.w-temps { display: flex; justify-content: center; gap: 8px; margin-bottom: 8px; }
+.w-max { font-size: 14px; font-weight: 700; color: #f97316; }
+.w-min { font-size: 14px; font-weight: 700; color: #60a5fa; }
+.w-precip { font-size: 11px; color: var(--text-3); }
+.weather-note {
+  font-size: 11px;
+  color: var(--text-3);
+  line-height: 1.5;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.weather-loading {
+  text-align: center;
+  padding: 48px 0;
+  color: var(--text-3);
+}
+.weather-loading-icon { font-size: 2.5rem; margin-bottom: 12px; }
 
 /* ============================================================
    RESPONSIVE

@@ -1174,6 +1174,120 @@ function renderMapsContent() {
 }
 
 /* ============================================================
+   WEATHER  (Open-Meteo API — no key required)
+   ============================================================ */
+const WMO = {
+  0:  { emoji: '☀️',  label: '快晴' },
+  1:  { emoji: '🌤',  label: 'ほぼ晴れ' },
+  2:  { emoji: '⛅',  label: '一部曇り' },
+  3:  { emoji: '☁️',  label: '曇り' },
+  45: { emoji: '🌫',  label: '霧' },
+  48: { emoji: '🌫',  label: '霧氷' },
+  51: { emoji: '🌦',  label: '霧雨（弱）' },
+  53: { emoji: '🌦',  label: '霧雨' },
+  55: { emoji: '🌧',  label: '霧雨（強）' },
+  61: { emoji: '🌧',  label: '小雨' },
+  63: { emoji: '🌧',  label: '雨' },
+  65: { emoji: '🌧',  label: '大雨' },
+  71: { emoji: '🌨',  label: '小雪' },
+  73: { emoji: '🌨',  label: '雪' },
+  75: { emoji: '❄️',  label: '大雪' },
+  77: { emoji: '🌨',  label: 'あられ' },
+  80: { emoji: '🌦',  label: 'にわか雨（弱）' },
+  81: { emoji: '🌦',  label: 'にわか雨' },
+  82: { emoji: '⛈',  label: 'にわか大雨' },
+  85: { emoji: '🌨',  label: 'にわか雪' },
+  86: { emoji: '🌨',  label: 'にわか大雪' },
+  95: { emoji: '⛈',  label: '雷雨' },
+  96: { emoji: '⛈',  label: '雷雨＋ひょう' },
+  99: { emoji: '⛈',  label: '雷雨＋大ひょう' },
+};
+
+const WEATHER_CITIES = {
+  swiss:  { label: '🏔 スイス',  sub: 'インターラーケン', lat: 46.6863, lon: 7.8632,  tz: 'Europe/Zurich', start: '2026-07-05', end: '2026-07-07' },
+  venice: { label: '🎭 ベネチア', sub: 'ヴェネツィア',   lat: 45.4408, lon: 12.3155, tz: 'Europe/Rome',   start: '2026-07-07', end: '2026-07-09' },
+  rome:   { label: '🏛 ローマ',  sub: 'ローマ',          lat: 41.9028, lon: 12.4964, tz: 'Europe/Rome',   start: '2026-07-09', end: '2026-07-11' },
+};
+
+let activeWeatherTab = 'swiss';
+const weatherCache = {};
+
+async function fetchWeather(cityKey) {
+  if (weatherCache[cityKey]) return weatherCache[cityKey];
+  const c = WEATHER_CITIES[cityKey];
+  const p = new URLSearchParams({
+    latitude:  c.lat,
+    longitude: c.lon,
+    daily:     'temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum',
+    timezone:  c.tz,
+    start_date: c.start,
+    end_date:   c.end,
+  });
+  const res = await fetch(`https://api.open-meteo.com/v1/forecast?${p}`);
+  if (!res.ok) throw new Error('fetch failed');
+  weatherCache[cityKey] = await res.json();
+  return weatherCache[cityKey];
+}
+
+function renderWeatherTabs() {
+  const el = document.getElementById('weatherTabs');
+  if (!el) return;
+  el.className = 'maps-tabs filter-tabs';
+  el.innerHTML = Object.entries(WEATHER_CITIES).map(([key, c]) => `
+    <button class="filter-tab${activeWeatherTab === key ? ' active' : ''}" data-wtab="${key}">
+      ${c.label}
+    </button>`).join('');
+  el.querySelectorAll('.filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeWeatherTab = btn.dataset.wtab;
+      el.querySelectorAll('.filter-tab').forEach(b =>
+        b.classList.toggle('active', b.dataset.wtab === activeWeatherTab));
+      renderWeatherContent();
+    });
+  });
+}
+
+const _DAY_JP = ['日', '月', '火', '水', '木', '金', '土'];
+
+async function renderWeatherContent() {
+  const el = document.getElementById('weatherContent');
+  if (!el) return;
+  el.innerHTML = `<div class="weather-loading fade-up"><p class="weather-loading-icon">⛅</p><p>天気予報を取得中...</p></div>`;
+  try {
+    const data = await fetchWeather(activeWeatherTab);
+    const { time, temperature_2m_max, temperature_2m_min, weathercode, precipitation_sum } = data.daily;
+    const city = WEATHER_CITIES[activeWeatherTab];
+    el.innerHTML = `
+      <div class="weather-container">
+        <p class="weather-source">📡 Open-Meteo ／ ${city.sub}地点</p>
+        <div class="weather-cards">
+          ${time.map((date, i) => {
+            const [y, mo, d] = date.split('-').map(Number);
+            const dayName = _DAY_JP[new Date(y, mo - 1, d).getDay()];
+            const w = WMO[weathercode[i]] || { emoji: '🌡', label: '不明' };
+            const precip = (precipitation_sum[i] ?? 0).toFixed(1);
+            return `
+              <div class="weather-card fade-up">
+                <p class="w-date">${mo}/${d}（${dayName}）</p>
+                <p class="w-emoji">${w.emoji}</p>
+                <p class="w-label">${w.label}</p>
+                <div class="w-temps">
+                  <span class="w-max">↑ ${Math.round(temperature_2m_max[i])}°</span>
+                  <span class="w-min">↓ ${Math.round(temperature_2m_min[i])}°</span>
+                </div>
+                <p class="w-precip">💧 ${precip} mm</p>
+              </div>`;
+          }).join('')}
+        </div>
+        <p class="weather-note">※ 予報は変わる場合があります。出発前に最新情報をご確認ください。</p>
+      </div>`;
+    observeFadeUps(el);
+  } catch {
+    el.innerHTML = `<div class="empty-state"><p class="empty-state-icon">⚠️</p><p>天気情報の取得に失敗しました。<br>通信環境をご確認ください。</p></div>`;
+  }
+}
+
+/* ============================================================
    HERO SLIDESHOW
    ============================================================ */
 function initHeroSlideshow() {
@@ -1221,7 +1335,7 @@ function initBottomNav() {
   const items  = document.querySelectorAll('.bnav-item');
   const navMap = {
     home: 'home', overview: 'overview', schedule: 'overview',
-    spots: 'spots', maps: 'maps'
+    spots: 'spots', maps: 'maps', weather: 'weather'
   };
 
   const io = new IntersectionObserver(entries => {
@@ -1234,7 +1348,7 @@ function initBottomNav() {
     });
   }, { threshold: 0.35, rootMargin: '-10% 0px -50% 0px' });
 
-  ['home','overview','schedule','spots','maps'].forEach(id => {
+  ['home','overview','schedule','spots','maps','weather'].forEach(id => {
     const el = document.getElementById(id);
     if (el) io.observe(el);
   });
@@ -1298,6 +1412,8 @@ document.addEventListener('DOMContentLoaded', () => {
   lazyLoadSpotPhotos();
   renderMapsTabs();
   renderMapsContent();
+  renderWeatherTabs();
+  renderWeatherContent();
   initHeroSlideshow();
   initBottomNav();
   initSmoothScroll();
@@ -1305,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(() => {
     observeFadeUps(document);
 
-    ['overviewContent','scheduleContent','spotsGrid','mapsContent'].forEach(id => {
+    ['overviewContent','scheduleContent','spotsGrid','mapsContent','weatherContent'].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
       observeFadeUps(el);
