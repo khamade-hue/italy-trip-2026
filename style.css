@@ -118,14 +118,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transform: translateX(-50%);
   animation-delay: -6s;
 }
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
 
 @keyframes float {
   0%, 100% { transform: translateY(0) scale(1); }
