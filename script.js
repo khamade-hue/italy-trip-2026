@@ -651,38 +651,6 @@ const ROUTES = {
 };
 
 /* ============================================================
-   GALLERY
-   ============================================================ */
-const GALLERY = {
-  swiss: [
-    { name: 'インターラーケン', nameEn: 'Interlaken', emoji: '🏔', bg: 'swiss-bg' },
-    { name: 'グリンデルワルト', nameEn: 'Grindelwald', emoji: '⛰', bg: 'swiss-bg' },
-    { name: 'ラウターブルンネン', nameEn: 'Lauterbrunnen', emoji: '💦', bg: 'swiss-bg' },
-    { name: 'ユングフラウヨッホ', nameEn: 'Jungfraujoch', emoji: '❄️', bg: 'swiss-bg' },
-    { name: 'アルプスの絶景', nameEn: 'Alpine Panorama', emoji: '🌄', bg: 'swiss-bg' },
-    { name: 'スイスの朝', nameEn: 'Swiss Morning', emoji: '🌅', bg: 'swiss-bg' },
-  ],
-  venice: [
-    { name: 'リアルト橋', nameEn: 'Rialto Bridge', emoji: '🌉', bg: 'venice-bg' },
-    { name: 'サンマルコ広場', nameEn: "St. Mark's Square", emoji: '🎭', bg: 'venice-bg' },
-    { name: 'サンマルコ寺院', nameEn: "St. Mark's Basilica", emoji: '⛪', bg: 'venice-bg' },
-    { name: 'ゴンドラ', nameEn: 'Gondola', emoji: '🛶', bg: 'venice-bg' },
-    { name: '大運河', nameEn: 'Grand Canal', emoji: '🌊', bg: 'venice-bg' },
-    { name: '夜のベネチア', nameEn: 'Venice at Night', emoji: '🌙', bg: 'venice-bg' },
-  ],
-  rome: [
-    { name: 'コロッセオ', nameEn: 'Colosseum', emoji: '🏟', bg: 'rome-bg' },
-    { name: 'トレビの泉', nameEn: 'Trevi Fountain', emoji: '⛲', bg: 'rome-bg' },
-    { name: 'パンテオン', nameEn: 'Pantheon', emoji: '🏛', bg: 'rome-bg' },
-    { name: 'サンタンジェロ城', nameEn: "Castel Sant'Angelo", emoji: '🏰', bg: 'rome-bg' },
-    { name: 'ナヴォーナ広場', nameEn: 'Piazza Navona', emoji: '🌊', bg: 'rome-bg' },
-    { name: 'スペイン広場', nameEn: 'Spanish Steps', emoji: '🌅', bg: 'rome-bg' },
-    { name: 'ヴァチカン', nameEn: 'Vatican', emoji: '🎨', bg: 'rome-bg' },
-    { name: 'サン・ピエトロ広場', nameEn: "St. Peter's Square", emoji: '⛪', bg: 'rome-bg' },
-  ]
-};
-
-/* ============================================================
    UTILITIES
    ============================================================ */
 function toDateMidnight(str) {
@@ -1088,51 +1056,6 @@ function renderMapsContent() {
 }
 
 /* ============================================================
-   GALLERY  (default: swiss)
-   ============================================================ */
-let activeGalleryTab = 'swiss';
-
-function renderGalleryTabs() {
-  const el = document.getElementById('galleryTabs');
-  if (!el) return;
-
-  el.className = 'gallery-tabs filter-tabs';
-  el.innerHTML = [
-    { key: 'swiss',  label: '🏔 スイス' },
-    { key: 'venice', label: '🎭 ベネチア' },
-    { key: 'rome',   label: '🏛 ローマ' },
-  ].map(t => `
-    <button class="filter-tab${activeGalleryTab === t.key ? ' active' : ''}" data-gallery="${t.key}">
-      ${t.label}
-    </button>`).join('');
-
-  el.querySelectorAll('.filter-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      activeGalleryTab = btn.dataset.gallery;
-      el.querySelectorAll('.filter-tab').forEach(b =>
-        b.classList.toggle('active', b.dataset.gallery === activeGalleryTab));
-      renderGalleryGrid();
-    });
-  });
-}
-
-function renderGalleryGrid() {
-  const el    = document.getElementById('galleryGrid');
-  if (!el) return;
-  const items = GALLERY[activeGalleryTab] || [];
-
-  el.className = 'gallery-grid';
-  el.innerHTML = items.map(item => `
-    <div class="gallery-item ${item.bg} fade-up">
-      <span class="gallery-item-emoji" aria-hidden="true">${item.emoji}</span>
-      <div class="gallery-overlay">
-        <p class="gallery-name">${item.name}</p>
-        <p class="gallery-name-en">${item.nameEn}</p>
-      </div>
-    </div>`).join('');
-}
-
-/* ============================================================
    HERO SLIDESHOW
    ============================================================ */
 function initHeroSlideshow() {
@@ -1185,7 +1108,7 @@ function initBottomNav() {
   const items  = document.querySelectorAll('.bnav-item');
   const navMap = {
     home: 'home', overview: 'overview', schedule: 'overview',
-    spots: 'spots', maps: 'maps', gallery: 'gallery'
+    spots: 'spots', maps: 'maps'
   };
 
   const io = new IntersectionObserver(entries => {
@@ -1198,7 +1121,7 @@ function initBottomNav() {
     });
   }, { threshold: 0.35, rootMargin: '-10% 0px -50% 0px' });
 
-  ['home','overview','schedule','spots','maps','gallery'].forEach(id => {
+  ['home','overview','schedule','spots','maps'].forEach(id => {
     const el = document.getElementById(id);
     if (el) io.observe(el);
   });
@@ -1262,9 +1185,6 @@ document.addEventListener('DOMContentLoaded', () => {
   lazyLoadSpotPhotos();
   renderMapsTabs();
   renderMapsContent();
-  renderGalleryTabs();
-  renderGalleryGrid();
-
   initHeroSlideshow();
   initHeader();
   initBottomNav();
@@ -1273,7 +1193,7 @@ document.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(() => {
     observeFadeUps(document);
 
-    ['overviewContent','scheduleContent','spotsGrid','mapsContent','galleryGrid'].forEach(id => {
+    ['overviewContent','scheduleContent','spotsGrid','mapsContent'].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
       observeFadeUps(el);
