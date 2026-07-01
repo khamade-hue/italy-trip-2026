@@ -574,8 +574,9 @@ const GOURMET = {
         area: 'インターラーケン市内',
         icon: '☀️',
         places: [
-          { name: 'Restaurant Schuh', type: 'カフェ・ビストロ', dish: 'ロースティ・チーズスープ', budget: 'CHF 20〜35', tip: '1921年創業の老舗。ヘーエウェーク通り沿いでアルプスを望む絶好のロケーション。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Schuh+Interlaken' },
-          { name: 'Goldener Anker', type: 'スイス料理', dish: 'チーズフォンデュ・ラクレット', budget: 'CHF 25〜45', tip: '地元民にも人気のフォンデュ店。夏でも本格フォンデュが楽しめる。', mapsUrl: 'https://maps.google.com/?q=Goldener+Anker+Interlaken' },
+          { name: 'Restaurant Schuh', type: 'カフェ・ビストロ', dish: 'ロースティ・チーズスープ', budget: 'CHF 20〜35', tip: '1921年創業の老舗。ヘーエウェーク通り沿いでアルプスを望む絶好のロケーション。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Schuh+Interlaken', siteUrl: 'https://www.schuh-interlaken.ch/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Restaurant+Schuh+Interlaken' },
+          { name: 'Goldener Anker', type: 'スイス料理', dish: 'チーズフォンデュ・ラクレット', budget: 'CHF 25〜45', tip: '地元民にも人気のフォンデュ店。夏でも本格フォンデュが楽しめる。', mapsUrl: 'https://maps.google.com/?q=Goldener+Anker+Interlaken', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Goldener+Anker+Interlaken' },
+          { name: 'Sandwich Station Interlaken', type: 'デリ・テイクアウト', dish: 'グルメサンドイッチ・スープ・サラダ', budget: 'CHF 12〜20', tip: '駅近くにある軽食スタンド。テイクアウトして観光前に手早く済ませるのが◎。3つの中でコスパ最強。', mapsUrl: 'https://maps.google.com/?q=deli+lunch+Interlaken', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=budget+lunch+Interlaken' },
         ]
       },
       {
@@ -583,8 +584,9 @@ const GOURMET = {
         area: 'インターラーケン市内（ハーダークルム下山後）',
         icon: '🌙',
         places: [
-          { name: 'Restaurant Laterne', type: 'スイス料理', dish: 'ベルナープラッテ・地ビール', budget: 'CHF 28〜50', tip: 'ローカルな雰囲気のスイス料理店。地ビールとビーフシチューが絶品。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Laterne+Interlaken' },
-          { name: 'Pizzeria Mercato', type: 'イタリアン', dish: 'ピザ・パスタ', budget: 'CHF 18〜30', tip: '旅の初日で疲れている時はシンプルなピザが◎。ポーション大きめで地元客も多い。', mapsUrl: 'https://maps.google.com/?q=Pizzeria+Mercato+Interlaken' },
+          { name: 'Restaurant Laterne', type: 'スイス料理', dish: 'ベルナープラッテ・地ビール', budget: 'CHF 28〜50', tip: 'ローカルな雰囲気のスイス料理店。地ビールとビーフシチューが絶品。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Laterne+Interlaken', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Restaurant+Laterne+Interlaken' },
+          { name: 'Pizzeria Mercato', type: 'イタリアン', dish: 'ピザ・パスタ', budget: 'CHF 18〜30', tip: '旅の疲れにはシンプルなピザが◎。ポーション大きめで地元客も多い。', mapsUrl: 'https://maps.google.com/?q=Pizzeria+Mercato+Interlaken', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Pizzeria+Mercato+Interlaken' },
+          { name: "Buddy's Pub", type: 'バー・グリル', dish: 'バーガー・フライ・クラフトビール', budget: 'CHF 18〜32', tip: '旅行者に大人気のパブ。スイスで食べるがっつりバーガーは意外と絶品。ハーダークルム帰りの一杯に◎。', mapsUrl: "https://maps.google.com/?q=Buddy's+Pub+Interlaken", siteUrl: 'https://www.buddyspub.ch/', reviewUrl: "https://www.tripadvisor.com/Search?q=Buddy's+Pub+Interlaken" },
         ]
       },
       {
@@ -592,8 +594,9 @@ const GOURMET = {
         area: 'ユングフラウヨッホ（標高3,454m）',
         icon: '☀️',
         places: [
-          { name: 'Crystal Restaurant', type: 'マウンテンレストラン', dish: 'カレー・スパゲッティ・スープ', budget: 'CHF 22〜38', tip: '世界最高所クラスのレストラン。メニューは限られるが「標高3,454mのランチ」という体験が最高。', mapsUrl: 'https://maps.google.com/?q=Crystal+Restaurant+Jungfraujoch' },
-          { name: 'Bollywood Restaurant', type: 'インド料理（山頂）', dish: 'カレー各種', budget: 'CHF 20〜35', tip: '山頂でインドカレーというギャップが面白い。寒さで冷えた体が温まる。', mapsUrl: 'https://maps.google.com/?q=Jungfraujoch+restaurant' },
+          { name: 'Crystal Restaurant', type: 'マウンテンレストラン', dish: 'カレー・スパゲッティ・スープ', budget: 'CHF 22〜38', tip: '世界最高所クラスのレストラン。メニューは限られるが「標高3,454mのランチ」という体験が最高。', mapsUrl: 'https://maps.google.com/?q=Crystal+Restaurant+Jungfraujoch', siteUrl: 'https://www.jungfrau.ch/en-gb/jungfraujoch-top-of-europe/gastronomy/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Crystal+Restaurant+Jungfraujoch' },
+          { name: 'Bollywood Restaurant', type: 'インド料理（山頂）', dish: 'カレー各種', budget: 'CHF 20〜35', tip: '山頂でインドカレーというギャップが面白い。寒さで冷えた体が温まる。', mapsUrl: 'https://maps.google.com/?q=Jungfraujoch+restaurant', siteUrl: 'https://www.jungfrau.ch/en-gb/jungfraujoch-top-of-europe/gastronomy/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Bollywood+Restaurant+Jungfraujoch' },
+          { name: 'Lindt Swiss Chocolate Heaven', type: 'チョコレートショップ＆カフェ', dish: 'ホットチョコレート・チョコ試食', budget: 'CHF 5〜15', tip: '山頂のリント直営店。ホットチョコとアルプスの絶景のコラボは格別。お土産購入も忘れずに。', mapsUrl: 'https://maps.google.com/?q=Lindt+Chocolate+Jungfraujoch', siteUrl: 'https://www.jungfrau.ch/en-gb/jungfraujoch-top-of-europe/shopping/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Jungfraujoch+chocolate+shop' },
         ]
       },
       {
@@ -601,8 +604,9 @@ const GOURMET = {
         area: 'インターラーケン市内',
         icon: '🌙',
         places: [
-          { name: 'Restaurant Bären', type: 'スイス伝統料理', dish: 'ラクレット・ロースティ', budget: 'CHF 25〜45', tip: 'スイス滞在最後の夜におすすめ。伝統的なラクレットを堪能するなら外せない。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Baren+Interlaken' },
-          { name: 'Taverne Interlaken', type: 'スイス・欧州料理', dish: 'チーズフォンデュ・グリル料理', budget: 'CHF 30〜55', tip: '雰囲気の良い石造りの内装。旅の締めくくりにふさわしい一軒。', mapsUrl: 'https://maps.google.com/?q=Taverne+Interlaken' },
+          { name: 'Restaurant Bären', type: 'スイス伝統料理', dish: 'ラクレット・ロースティ', budget: 'CHF 25〜45', tip: 'スイス滞在最後の夜におすすめ。伝統的なラクレットを堪能するなら外せない。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Baren+Interlaken', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Restaurant+Baeren+Interlaken' },
+          { name: 'Taverne Interlaken', type: 'スイス・欧州料理', dish: 'チーズフォンデュ・グリル料理', budget: 'CHF 30〜55', tip: '雰囲気の良い石造りの内装。旅の締めくくりにふさわしい一軒。', mapsUrl: 'https://maps.google.com/?q=Taverne+Interlaken', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Taverne+Interlaken' },
+          { name: 'Restaurant Benacus', type: '地中海・イタリア料理', dish: 'パスタ・グリル・サラダ', budget: 'CHF 22〜38', tip: 'スイス最後の夜にイタリアンで翌日のベネチアを予習気分で。明るい雰囲気でワインも充実。', mapsUrl: 'https://maps.google.com/?q=Italian+restaurant+Interlaken', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Italian+restaurant+Interlaken' },
         ]
       },
     ]
@@ -621,8 +625,9 @@ const GOURMET = {
         area: 'リアルト橋・サンマルコ周辺',
         icon: '🌙',
         places: [
-          { name: 'Trattoria alla Madonna', type: 'ベネチア料理（老舗）', dish: 'フリット・ミスト・魚介リゾット', budget: '€35〜55/人', tip: '1954年創業のベネチア老舗。リアルト橋近く。新鮮なシーフードが揃う地元の名店。', mapsUrl: 'https://maps.google.com/?q=Trattoria+alla+Madonna+Venice' },
-          { name: 'Osteria alle Testiere', type: 'シーフード専門店', dish: 'バッカラ・イカ墨パスタ', budget: '€50〜80/人', tip: '超人気店のため要予約。本格ベネチア料理。小さな店なので早めに席の確保を。', mapsUrl: 'https://maps.google.com/?q=Osteria+alle+Testiere+Venice' },
+          { name: 'Trattoria alla Madonna', type: 'ベネチア料理（老舗）', dish: 'フリット・ミスト・魚介リゾット', budget: '€35〜55/人', tip: '1954年創業のベネチア老舗。リアルト橋近く。新鮮なシーフードが揃う地元の名店。', mapsUrl: 'https://maps.google.com/?q=Trattoria+alla+Madonna+Venice', siteUrl: 'http://www.ristoranteallamadonna.com/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Trattoria+alla+Madonna+Venice' },
+          { name: 'Osteria alle Testiere', type: 'シーフード専門店', dish: 'バッカラ・イカ墨パスタ', budget: '€50〜80/人', tip: '超人気店のため要予約。本格ベネチア料理。小さな店なので早めに席の確保を。', mapsUrl: 'https://maps.google.com/?q=Osteria+alle+Testiere+Venice', siteUrl: 'https://www.osterialletestiere.it/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Osteria+alle+Testiere+Venice' },
+          { name: 'Bacaro Jazz', type: 'バーカロ・ワインバー', dish: 'チチェッティ・ハーフボトルワイン', budget: '€20〜35/人', tip: 'リアルト橋そばの気軽なワインバー。深夜まで営業でジャズが流れる大人の雰囲気。ベネチア初日の夜に◎。', mapsUrl: 'https://maps.google.com/?q=Bacaro+Jazz+Venice', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Bacaro+Jazz+Venice' },
         ]
       },
       {
@@ -630,8 +635,9 @@ const GOURMET = {
         area: 'リアルト市場周辺（バーカロ巡り）',
         icon: '☀️',
         places: [
-          { name: "All'Arco", type: 'バーカロ（立ち飲み）', dish: 'チチェッティ各種・白ワイン（オンブラ）', budget: '€8〜15/人', tip: 'リアルト市場そばのローカル名店。朝〜昼のみ営業。市場の新鮮食材を使ったチチェッティが絶品。', mapsUrl: "https://maps.google.com/?q=All'Arco+Venice" },
-          { name: 'Cantina Do Mori', type: 'バーカロ（最古の酒場）', dish: 'チチェッティ・ワイン', budget: '€10〜18/人', tip: '1462年創業のベネチア最古のバーカロ。立ち飲みでチチェッティをつまみながらワインを一杯。', mapsUrl: 'https://maps.google.com/?q=Cantina+Do+Mori+Venice' },
+          { name: "All'Arco", type: 'バーカロ（立ち飲み）', dish: 'チチェッティ各種・白ワイン（オンブラ）', budget: '€8〜15/人', tip: 'リアルト市場そばのローカル名店。朝〜昼のみ営業。市場の新鮮食材を使ったチチェッティが絶品。', mapsUrl: "https://maps.google.com/?q=All'Arco+Venice", siteUrl: null, reviewUrl: "https://www.tripadvisor.com/Search?q=All'Arco+Venice" },
+          { name: 'Cantina Do Mori', type: 'バーカロ（最古の酒場）', dish: 'チチェッティ・ワイン', budget: '€10〜18/人', tip: '1462年創業のベネチア最古のバーカロ。立ち飲みでチチェッティをつまみながらワインを一杯。', mapsUrl: 'https://maps.google.com/?q=Cantina+Do+Mori+Venice', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Cantina+Do+Mori+Venice' },
+          { name: 'Bancogiro Osteria', type: 'オステリア・大運河沿い', dish: 'チチェッティ・ワイン・軽食', budget: '€12〜22/人', tip: 'リアルト市場に面した大運河沿いのオステリア。外テラスからゴンドラを眺めながらランチが◎。', mapsUrl: 'https://maps.google.com/?q=Osteria+Bancogiro+Venice', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Bancogiro+Osteria+Venice' },
         ]
       },
       {
@@ -639,8 +645,9 @@ const GOURMET = {
         area: 'カナレージョ地区・サンマルコ周辺',
         icon: '🌙',
         places: [
-          { name: 'Trattoria Corte Sconta', type: 'シーフードレストラン', dish: 'コース料理・新鮮魚介', budget: '€45〜70/人', tip: 'カナレージョ地区の隠れ家的名店。地元の常連も通う本格ベネチア料理。要予約。', mapsUrl: 'https://maps.google.com/?q=Trattoria+Corte+Sconta+Venice' },
-          { name: 'Osteria da Rioba', type: 'ベネチア料理', dish: 'イカ墨パスタ・魚介リゾット', budget: '€35〜55/人', tip: 'カナレージョ運河沿いのテラス席が最高。夕暮れの運河を眺めながらシーフードを堪能できる。', mapsUrl: 'https://maps.google.com/?q=Osteria+da+Rioba+Venice' },
+          { name: 'Trattoria Corte Sconta', type: 'シーフードレストラン', dish: 'コース料理・新鮮魚介', budget: '€45〜70/人', tip: 'カナレージョ地区の隠れ家的名店。地元の常連も通う本格ベネチア料理。要予約。', mapsUrl: 'https://maps.google.com/?q=Trattoria+Corte+Sconta+Venice', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Trattoria+Corte+Sconta+Venice' },
+          { name: 'Osteria da Rioba', type: 'ベネチア料理', dish: 'イカ墨パスタ・魚介リゾット', budget: '€35〜55/人', tip: 'カナレージョ運河沿いのテラス席が最高。夕暮れの運河を眺めながらシーフードを堪能できる。', mapsUrl: 'https://maps.google.com/?q=Osteria+da+Rioba+Venice', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Osteria+da+Rioba+Venice' },
+          { name: "Osteria L'Orto dei Mori", type: 'ベネチア料理（隠れ家）', dish: 'フリット・ミスト・白身魚のグリル', budget: '€30〜50/人', tip: 'マドンナ・デル・オルト教会そばの静かな運河沿い。観光客が少なくローカルな雰囲気が魅力。', mapsUrl: "https://maps.google.com/?q=Osteria+L'Orto+dei+Mori+Venice", siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Osteria+Orto+dei+Mori+Venice' },
         ]
       },
     ]
@@ -659,8 +666,9 @@ const GOURMET = {
         area: 'ナヴォーナ広場・パンテオン周辺',
         icon: '🌙',
         places: [
-          { name: "Osteria dell'Anima", type: 'ローマ料理', dish: 'カルボナーラ・アマトリチャーナ', budget: '€30〜50/人', tip: 'ナヴォーナ広場から徒歩2分。観光地の割にコスパ良く本格ローマ料理が楽しめる。', mapsUrl: "https://maps.google.com/?q=Osteria+dell'Anima+Rome" },
-          { name: 'Ristorante Fortunato al Pantheon', type: 'ローマ料理（老舗）', dish: 'ローマ料理フルコース', budget: '€45〜70/人', tip: '1975年創業、パンテオン徒歩1分の老舗。政治家や文化人も通う格式あるリストランテ。', mapsUrl: 'https://maps.google.com/?q=Ristorante+Fortunato+al+Pantheon+Rome' },
+          { name: "Osteria dell'Anima", type: 'ローマ料理', dish: 'カルボナーラ・アマトリチャーナ', budget: '€30〜50/人', tip: 'ナヴォーナ広場から徒歩2分。観光地の割にコスパ良く本格ローマ料理が楽しめる。', mapsUrl: "https://maps.google.com/?q=Osteria+dell'Anima+Rome", siteUrl: null, reviewUrl: "https://www.tripadvisor.com/Search?q=Osteria+dell'Anima+Rome" },
+          { name: 'Ristorante Fortunato al Pantheon', type: 'ローマ料理（老舗）', dish: 'ローマ料理フルコース', budget: '€45〜70/人', tip: '1975年創業、パンテオン徒歩1分の老舗。政治家や文化人も通う格式あるリストランテ。', mapsUrl: 'https://maps.google.com/?q=Ristorante+Fortunato+al+Pantheon+Rome', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Fortunato+al+Pantheon+Rome' },
+          { name: 'Armando al Pantheon', type: 'トラットリア（1961年創業）', dish: 'カルボナーラ・カチョ・エ・ペペ', budget: '€35〜55/人', tip: '1961年創業のパンテオン前の名店。ローマっ子にも愛される本物のローマ料理。要予約推奨。', mapsUrl: 'https://maps.google.com/?q=Armando+al+Pantheon+Rome', siteUrl: 'https://armandoalpantheon.it/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Armando+al+Pantheon+Rome' },
         ]
       },
       {
@@ -668,8 +676,9 @@ const GOURMET = {
         area: 'テスタッチョ地区（コロッセオから地下鉄10分）',
         icon: '☀️',
         places: [
-          { name: 'Roscioli Salumeria con Cucina', type: 'サルメリア・デリ', dish: 'サルーミ盛り・チーズ・パスタ', budget: '€25〜40/人', tip: '世界中のグルメが訪れる食材の殿堂。テイクアウトも可。ランチは混むので早めに。', mapsUrl: 'https://maps.google.com/?q=Roscioli+Salumeria+Rome' },
-          { name: 'Trattoria da Remo', type: 'ピッツェリア（地元民御用達）', dish: 'ローマ風薄焼きピザ', budget: '€12〜20/人', tip: 'テスタッチョの地元民御用達。ローマスタイルの薄くてパリパリのピザ。行列必至だが回転は速い。', mapsUrl: 'https://maps.google.com/?q=Trattoria+da+Remo+Rome' },
+          { name: 'Roscioli Salumeria con Cucina', type: 'サルメリア・デリ', dish: 'サルーミ盛り・チーズ・パスタ', budget: '€25〜40/人', tip: '世界中のグルメが訪れる食材の殿堂。テイクアウトも可。ランチは混むので早めに。', mapsUrl: 'https://maps.google.com/?q=Roscioli+Salumeria+Rome', siteUrl: 'https://www.salumeriaroscioli.com/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Roscioli+Salumeria+Rome' },
+          { name: 'Trattoria da Remo', type: 'ピッツェリア（地元民御用達）', dish: 'ローマ風薄焼きピザ', budget: '€12〜20/人', tip: 'テスタッチョの地元民御用達。ローマスタイルの薄くてパリパリのピザ。行列必至だが回転は速い。', mapsUrl: 'https://maps.google.com/?q=Trattoria+da+Remo+Rome', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Trattoria+da+Remo+Testaccio+Rome' },
+          { name: 'Mercato di Testaccio', type: 'フードマーケット（屋台）', dish: 'ストリートフード・ピザ・フルーツ', budget: '€5〜15/人', tip: 'テスタッチョの屋根付き市場。€5〜10で地元グルメを食べ歩き。コスパ最強のランチスポット。', mapsUrl: 'https://maps.google.com/?q=Mercato+di+Testaccio+Rome', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Mercato+Testaccio+Rome' },
         ]
       },
       {
@@ -677,8 +686,9 @@ const GOURMET = {
         area: 'トラステヴェレ地区（バチカンから徒歩20分）',
         icon: '🌙',
         places: [
-          { name: 'Da Enzo al 29', type: 'ローマ伝統料理', dish: 'カチョ・エ・ペペ・牛テール煮込み', budget: '€30〜50/人', tip: 'トラステヴェレの名店。地元ローマっ子も認める本物のローマ料理。要予約。牛テールの煮込みが絶品。', mapsUrl: 'https://maps.google.com/?q=Da+Enzo+al+29+Rome' },
-          { name: "Osteria dell'Angelo", type: 'ローマ料理（家庭的）', dish: 'アマトリチャーナ・リガトーニ', budget: '€25〜40/人', tip: 'バチカン近くのコスパ最強の食堂。地元民の定食屋的存在。月〜金のみ営業（要事前確認）。', mapsUrl: "https://maps.google.com/?q=Osteria+dell+Angelo+Rome" },
+          { name: 'Da Enzo al 29', type: 'ローマ伝統料理', dish: 'カチョ・エ・ペペ・牛テール煮込み', budget: '€30〜50/人', tip: 'トラステヴェレの名店。地元ローマっ子も認める本物のローマ料理。要予約。牛テールの煮込みが絶品。', mapsUrl: 'https://maps.google.com/?q=Da+Enzo+al+29+Rome', siteUrl: 'https://www.daenzoal29.com/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Da+Enzo+al+29+Rome' },
+          { name: "Osteria dell'Angelo", type: 'ローマ料理（家庭的）', dish: 'アマトリチャーナ・リガトーニ', budget: '€25〜40/人', tip: 'バチカン近くのコスパ最強の食堂。地元民の定食屋的存在。月〜金のみ営業（要事前確認）。', mapsUrl: "https://maps.google.com/?q=Osteria+dell+Angelo+Rome", siteUrl: null, reviewUrl: "https://www.tripadvisor.com/Search?q=Osteria+dell'Angelo+Rome" },
+          { name: 'Da Augusto', type: 'トラットリア（昔ながらの食堂）', dish: 'カルボナーラ・スープ・焼き野菜', budget: '€20〜35/人', tip: 'トラステヴェレのピアッツァ・デ・レンツィにある昔ながらの大衆食堂。地元のおじさんたちが毎日通う安くて旨い一軒。', mapsUrl: 'https://maps.google.com/?q=Da+Augusto+Trastevere+Rome', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Da+Augusto+Trastevere+Rome' },
         ]
       },
       {
@@ -686,8 +696,9 @@ const GOURMET = {
         area: 'ローマ市内（最終日）',
         icon: '☀️',
         places: [
-          { name: 'Tonnarello', type: 'トラットリア', dish: 'ローマ3大パスタ食べ比べ', budget: '€25〜40/人', tip: 'ローマ最後の食事に最適。カルボナーラ・カチョエペペ・アマトリチャーナを一通り制覇できる。', mapsUrl: 'https://maps.google.com/?q=Tonnarello+Rome' },
-          { name: 'Gelateria dei Gracchi', type: 'ジェラテリア', dish: 'ピスタチオ・チョコ・フルーツジェラート', budget: '€3〜6/人', tip: 'バチカン近くのローマ屈指の人気ジェラート店。全素材の産地と製法をこだわりの一軒。帰国前の締めに。', mapsUrl: 'https://maps.google.com/?q=Gelateria+dei+Gracchi+Rome' },
+          { name: 'Tonnarello', type: 'トラットリア', dish: 'ローマ3大パスタ食べ比べ', budget: '€25〜40/人', tip: 'ローマ最後の食事に最適。カルボナーラ・カチョエペペ・アマトリチャーナを一通り制覇できる。', mapsUrl: 'https://maps.google.com/?q=Tonnarello+Rome', siteUrl: 'https://www.iltonnarello.com/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Tonnarello+Trastevere+Rome' },
+          { name: 'Gelateria dei Gracchi', type: 'ジェラテリア', dish: 'ピスタチオ・チョコ・フルーツジェラート', budget: '€3〜6/人', tip: 'バチカン近くのローマ屈指の人気ジェラート店。全素材の産地と製法をこだわりの一軒。帰国前の締めに。', mapsUrl: 'https://maps.google.com/?q=Gelateria+dei+Gracchi+Rome', siteUrl: null, reviewUrl: 'https://www.tripadvisor.com/Search?q=Gelateria+dei+Gracchi+Rome' },
+          { name: 'Antico Forno Roscioli', type: 'ベーカリー・ピッツァ・アル・タッリョ', dish: '切り売りピザ・フォカッチャ・焼き立てパン', budget: '€5〜12/人', tip: 'カンポ・デ・フィオーリ近くの老舗ベーカリー。重量売りのピザ・アル・タッリョが激安で絶品。帰国前の最後のローマグルメに。', mapsUrl: 'https://maps.google.com/?q=Antico+Forno+Roscioli+Rome', siteUrl: 'https://www.anticofornoroscioli.it/', reviewUrl: 'https://www.tripadvisor.com/Search?q=Antico+Forno+Roscioli+Rome' },
         ]
       },
     ]
@@ -1103,6 +1114,7 @@ function renderMapsContent() {
                 <a href="${r.mapsUrl}" target="_blank" rel="noopener" class="route-stop-link">📍 地図で見る →</a>
               </div>
               <p class="rest-tip">💡 ${r.tip}</p>
+              ${(r.siteUrl || r.reviewUrl) ? `<div class="rest-links">${r.siteUrl ? `<a href="${r.siteUrl}" target="_blank" rel="noopener" class="rest-link-btn rest-link-site">🌐 公式サイト</a>` : ''}${r.reviewUrl ? `<a href="${r.reviewUrl}" target="_blank" rel="noopener" class="rest-link-btn rest-link-review">⭐ レビューを見る</a>` : ''}</div>` : ''}
             </div>`).join('')}
         </div>`).join('')}
     </div>`;

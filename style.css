@@ -888,6 +888,34 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding-top: 8px;
   border-top: 1px solid var(--border);
 }
+.rest-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.rest-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.rest-link-btn:hover { opacity: 0.75; }
+.rest-link-site {
+  background: rgba(59,130,246,.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59,130,246,.3);
+}
+.rest-link-review {
+  background: rgba(245,158,11,.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245,158,11,.3);
+}
 
 /* ============================================================
    BOTTOM NAV
