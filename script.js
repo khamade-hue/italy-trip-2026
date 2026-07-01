@@ -1059,7 +1059,7 @@ function renderMapsContent() {
    HERO SLIDESHOW
    ============================================================ */
 function initHeroSlideshow() {
-  const Q = '?w=1920&q=85&fit=crop&crop=center';
+  const Q = '?w=3840&q=95&fit=crop&crop=center';
   const SLIDE_IMAGES = [
     { cls: 'hero-slide--swiss-alps', src: 'https://images.unsplash.com/photo-1628415491140-4d1108dc1045' + Q },
     { cls: 'hero-slide--interlaken', src: 'https://images.unsplash.com/photo-1528493366314-e317cd98dd52' + Q },
