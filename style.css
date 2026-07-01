@@ -701,6 +701,18 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .spot-header.venice-bg  { background: var(--g-venice); }
 .spot-header.swiss-bg   { background: var(--g-swiss); }
 .spot-header.transit-bg { background: var(--g-transit); }
+.spot-header { background-size: cover; background-position: center; }
+.spot-header.has-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.38) 55%, rgba(0,0,0,.10) 100%);
+  z-index: 0;
+}
+.spot-header.has-photo .spot-emoji,
+.spot-header.has-photo .spot-day-badge { z-index: 1; }
+.spot-header.has-photo .spot-name-en,
+.spot-header.has-photo .spot-name { position: relative; z-index: 1; }
 
 .spot-emoji {
   position: absolute;

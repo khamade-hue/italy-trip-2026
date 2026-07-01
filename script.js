@@ -888,6 +888,45 @@ function renderSpotsFilter() {
   });
 }
 
+const SPOT_PHOTOS = {
+  'interlaken':    'https://images.unsplash.com/photo-1528493366314-e317cd98dd52?w=800&q=80&fit=crop&crop=center',
+  'grindelwald':   'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80&fit=crop&crop=center',
+  'lauterbrunnen': 'https://images.unsplash.com/photo-1594534475808-b18fc33b045e?w=800&q=80&fit=crop&crop=center',
+  'jungfraujoch':  'https://images.unsplash.com/photo-1589371917123-cb9ccf53a931?w=800&q=80&fit=crop&crop=center',
+  'rialto':        'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80&fit=crop&crop=center',
+  'sanmarco':      'https://images.unsplash.com/photo-1523906921802-b5d2d899e93b?w=800&q=80&fit=crop&crop=center',
+  'basilica':      'https://images.unsplash.com/photo-1569230919100-d3fd5e1132f4?w=800&q=80&fit=crop&crop=center',
+  'gondola':       'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=800&q=80&fit=crop&crop=center',
+  'navona':        'https://images.unsplash.com/photo-1515261659688-8d7c2cb64f0e?w=800&q=80&fit=crop&crop=center',
+  'pantheon':      'https://images.unsplash.com/photo-1529154036614-a60975f5c760?w=800&q=80&fit=crop&crop=center',
+  'trevi':         'https://images.unsplash.com/photo-1529260830199-42c24126f198?w=800&q=80&fit=crop&crop=center',
+  'spanish-steps': 'https://images.unsplash.com/photo-1611558709798-e009c8fd7706?w=800&q=80&fit=crop&crop=center',
+  'colosseum':     'https://images.unsplash.com/photo-1555992828-ca4dbe41d294?w=800&q=80&fit=crop&crop=center',
+  'forum':         'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&q=80&fit=crop&crop=center',
+  'palatine':      'https://images.unsplash.com/photo-1503197979108-c824168d7e54?w=800&q=80&fit=crop&crop=center',
+  'vatican':       'https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=800&q=80&fit=crop&crop=center',
+  'stpeters':      'https://images.unsplash.com/photo-1540553016722-983e8d234b25?w=800&q=80&fit=crop&crop=center',
+  'santangelo':    'https://images.unsplash.com/photo-1579033461380-adb47c3eb938?w=800&q=80&fit=crop&crop=center',
+  'bridge':        'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80&fit=crop&crop=center',
+};
+
+function lazyLoadSpotPhotos() {
+  const headers = document.querySelectorAll('.spot-header[data-photo]');
+  if (!headers.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const src = el.dataset.photo;
+      const img = new Image();
+      img.onload = () => { el.style.backgroundImage = `url('${src}')`; };
+      img.src = src;
+      obs.unobserve(el);
+    });
+  }, { rootMargin: '300px' });
+  headers.forEach(h => obs.observe(h));
+}
+
 function renderSpotsGrid() {
   const el = document.getElementById('spotsGrid');
   if (!el) return;
@@ -895,6 +934,7 @@ function renderSpotsGrid() {
   el.className = 'spots-grid';
   el.innerHTML = SPOTS.map(spot => {
     const bg = `${spot.city}-bg`;
+    const photo = SPOT_PHOTOS[spot.id];
     const ticketBadge = spot.ticketType === 'free'
       ? `<span class="spot-ticket-badge ticket-free">🎟 入場無料</span>`
       : spot.ticketType === 'preorder'
@@ -907,7 +947,7 @@ function renderSpotsGrid() {
 
     return `
       <div class="spot-card fade-up" data-city="${spot.city}" id="spot-${spot.id}">
-        <div class="spot-header ${bg}">
+        <div class="spot-header ${bg}${photo ? ' has-photo' : ''}"${photo ? ` data-photo="${photo}"` : ''}>
           <span class="spot-emoji" aria-hidden="true">${spot.emoji}</span>
           <span class="spot-day-badge">Day ${spot.day}</span>
           <p class="spot-name-en">${spot.nameEn}</p>
@@ -1219,6 +1259,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderScheduleContent();
   renderSpotsFilter();
   renderSpotsGrid();
+  lazyLoadSpotPhotos();
   renderMapsTabs();
   renderMapsContent();
   renderGalleryTabs();
