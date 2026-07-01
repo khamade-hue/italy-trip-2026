@@ -1082,13 +1082,14 @@ function renderGalleryGrid() {
    HERO SLIDESHOW
    ============================================================ */
 function initHeroSlideshow() {
+  const Q = '?w=1920&q=85&fit=crop&crop=center';
   const SLIDE_IMAGES = [
-    { cls: 'hero-slide--swiss-alps', src: 'images/hero-swiss-alps.jpg'  },
-    { cls: 'hero-slide--interlaken', src: 'images/hero-interlaken.jpg'  },
-    { cls: 'hero-slide--jungfrau',   src: 'images/hero-jungfrau.jpg'    },
-    { cls: 'hero-slide--venice',     src: 'images/hero-venice.jpg'      },
-    { cls: 'hero-slide--rome',       src: 'images/hero-rome.jpg'        },
-    { cls: 'hero-slide--colosseum',  src: 'images/hero-colosseum.jpg'   },
+    { cls: 'hero-slide--swiss-alps', src: 'https://images.unsplash.com/photo-1628415491140-4d1108dc1045' + Q },
+    { cls: 'hero-slide--interlaken', src: 'https://images.unsplash.com/photo-1528493366314-e317cd98dd52' + Q },
+    { cls: 'hero-slide--jungfrau',   src: 'https://images.unsplash.com/photo-1589371917123-cb9ccf53a931' + Q },
+    { cls: 'hero-slide--venice',     src: 'https://images.unsplash.com/photo-1523906921802-b5d2d899e93b' + Q },
+    { cls: 'hero-slide--rome',       src: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5' + Q   },
+    { cls: 'hero-slide--colosseum',  src: 'https://images.unsplash.com/photo-1555992828-ca4dbe41d294' + Q   },
   ];
 
   SLIDE_IMAGES.forEach(({ cls, src }) => {
