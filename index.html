@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0505">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Italy &amp; Switzerland Trip 2026.7 — 旅のしおり">
+  <title>Italy &amp; Switzerland Trip 2026.7</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#home" class="header-brand">
+        <span class="header-flags" aria-hidden="true">🇨🇭&thinsp;🇮🇹</span>
+        <div class="header-text">
+          <span class="header-name">Italy &amp; Switzerland</span>
+          <span class="header-sub">Trip 2026.7</span>
+        </div>
+      </a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="#overview" class="header-link">日程</a>
+        <a href="#spots" class="header-link">スポット</a>
+        <a href="#maps" class="header-link">マップ</a>
+        <a href="#gallery" class="header-link">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="ヒーロー">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-slides" id="heroSlides">
+          <div class="hero-slide hero-slide--swiss-alps"></div>
+          <div class="hero-slide hero-slide--interlaken"></div>
+          <div class="hero-slide hero-slide--jungfrau"></div>
+          <div class="hero-slide hero-slide--venice"></div>
+          <div class="hero-slide hero-slide--rome"></div>
+          <div class="hero-slide hero-slide--colosseum"></div>
+        </div>
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-orb hero-orb--3"></div>
+        <div class="hero-grid"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Travel Itinerary</p>
+        <h1 class="hero-title">
+          Italy &amp;<br>
+          <em class="hero-title-em">Switzerland</em>
+        </h1>
+        <p class="hero-year">2026.7</p>
+
+        <div class="hero-cards" role="list">
+          <div class="stat-card glass" role="listitem">
+            <p class="stat-label">出発</p>
+            <p class="stat-value">7月4日</p>
+            <p class="stat-sub">土曜日</p>
+          </div>
+          <div class="stat-card glass stat-card--center" role="listitem" id="heroCountCard">
+            <p class="stat-label" id="heroCountLabel">旅行まで</p>
+            <p class="stat-value" id="heroCountValue">—</p>
+            <p class="stat-sub" id="heroCountSub">日</p>
+          </div>
+          <div class="stat-card glass" role="listitem">
+            <p class="stat-label">日数</p>
+            <p class="stat-value">9</p>
+            <p class="stat-sub">日間</p>
+          </div>
+        </div>
+
+        <div class="hero-cities" aria-label="訪問都市">
+          <span class="city-pill city-pill--swiss">🏔 スイス</span>
+          <span class="city-pill city-pill--venice">🎭 ベネチア</span>
+          <span class="city-pill city-pill--rome">🏛 ローマ</span>
+        </div>
+      </div>
+
+      <a href="#overview" class="hero-scroll-hint" aria-label="下へスクロール">
+        <span class="scroll-label">スクロール</span>
+        <span class="scroll-chevron" aria-hidden="true">⌄</span>
+      </a>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="section" id="overview" aria-label="旅程概要">
+      <div class="container">
+        <header class="section-header fade-up">
+          <p class="section-eyebrow">ITINERARY</p>
+          <h2 class="section-title">旅程概要</h2>
+          <p class="section-desc">9日間のスイス・イタリアの旅</p>
+        </header>
+        <div id="overviewContent" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="section section-alt" id="schedule" aria-label="Day別スケジュール">
+      <div class="container">
+        <header class="section-header fade-up">
+          <p class="section-eyebrow">SCHEDULE</p>
+          <h2 class="section-title">Day別スケジュール</h2>
+          <p class="section-desc">各日の詳細スケジュール</p>
+        </header>
+        <div id="scheduleTabs" role="tablist" aria-label="日程タブ"></div>
+        <div id="scheduleContent" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- SPOTS -->
+    <section class="section" id="spots" aria-label="観光スポット">
+      <div class="container">
+        <header class="section-header fade-up">
+          <p class="section-eyebrow">SIGHTSEEING</p>
+          <h2 class="section-title">観光スポット</h2>
+          <p class="section-desc">各スポットの詳細情報</p>
+        </header>
+        <div id="spotsFilter" role="tablist" aria-label="都市フィルター"></div>
+        <div id="spotsGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- MAPS -->
+    <section class="section section-alt" id="maps" aria-label="観光マップ">
+      <div class="container">
+        <header class="section-header fade-up">
+          <p class="section-eyebrow">ROUTE MAP</p>
+          <h2 class="section-title">観光マップ</h2>
+          <p class="section-desc">徒歩ルートと所要時間</p>
+        </header>
+        <div id="mapsTabs" role="tablist" aria-label="マップタブ"></div>
+        <div id="mapsContent" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery" aria-label="ギャラリー">
+      <div class="container">
+        <header class="section-header fade-up">
+          <p class="section-eyebrow">GALLERY</p>
+          <h2 class="section-title">ギャラリー</h2>
+          <p class="section-desc">旅先のインスピレーション</p>
+        </header>
+        <div id="galleryTabs" role="tablist" aria-label="ギャラリータブ"></div>
+        <div id="galleryGrid" aria-live="polite"></div>
+        <p class="gallery-note">📸 画像は <code>images/</code> フォルダに追加してください</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ BOTTOM NAV ============ -->
+  <nav class="bnav" aria-label="ボトムナビゲーション">
+    <a href="#home" class="bnav-item active" data-section="home" aria-label="ホーム">
+      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+        <path d="M9 21V12h6v9"/>
+      </svg>
+      <span>ホーム</span>
+    </a>
+    <a href="#overview" class="bnav-item" data-section="overview" aria-label="日程">
+      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+        <line x1="8" y1="14" x2="8" y2="14"/>
+        <line x1="12" y1="14" x2="12" y2="14"/>
+        <line x1="16" y1="14" x2="16" y2="14"/>
+      </svg>
+      <span>日程</span>
+    </a>
+    <a href="#spots" class="bnav-item" data-section="spots" aria-label="スポット">
+      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      <span>スポット</span>
+    </a>
+    <a href="#maps" class="bnav-item" data-section="maps" aria-label="マップ">
+      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+        <line x1="8" y1="2" x2="8" y2="18"/>
+        <line x1="16" y1="6" x2="16" y2="22"/>
+      </svg>
+      <span>マップ</span>
+    </a>
+    <a href="#gallery" class="bnav-item" data-section="gallery" aria-label="ギャラリー">
+      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+      <span>Gallery</span>
+    </a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
