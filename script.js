@@ -557,97 +557,141 @@ const SPOTS = [
 ];
 
 /* ============================================================
-   ROUTES
+   GOURMET
    ============================================================ */
-const ROUTES = {
-  swiss: [
-    {
-      title: 'Day 3 ルート — グリンデルワルト & ラウターブルンネン',
-      day: '7/6(月)',
-      stops: [
-        { icon: '🚉', name: 'インターラーケン東駅 出発', info: '09:00', mapsUrl: 'https://maps.google.com/?q=Interlaken+Ost+Station+Switzerland' },
-        { walk: '電車で約30分（BOB 鉄道）', walkIcon: '🚆' },
-        { icon: '⛰', name: 'グリンデルワルト', info: '09:30〜12:00 アイガー北壁の麓の山岳村を観光', mapsUrl: 'https://maps.google.com/?q=Grindelwald+Switzerland' },
-        { walk: '電車で約30〜40分（乗換あり）', walkIcon: '🚆' },
-        { icon: '💦', name: 'ラウターブルンネン', info: '13:30〜17:00 72の滝の谷を散策', mapsUrl: 'https://maps.google.com/?q=Lauterbrunnen+Switzerland' },
-        { walk: '電車で約20分（BLS 鉄道）', walkIcon: '🚆' },
-        { icon: '🏘', name: 'インターラーケン 帰着', info: '17:30 頃', mapsUrl: 'https://maps.google.com/?q=Interlaken+Switzerland' },
-      ]
-    },
-    {
-      title: 'Day 4 ルート — ユングフラウヨッホ',
-      day: '7/7(火)',
-      stops: [
-        { icon: '🚉', name: 'インターラーケン東駅 出発', info: '08:30（天候確認後）', mapsUrl: 'https://maps.google.com/?q=Interlaken+Ost+Station+Switzerland' },
-        { walk: 'ユングフラウ鉄道（登山）約 2時間', walkIcon: '🚞' },
-        { icon: '❄️', name: 'ユングフラウヨッホ', info: '10:00〜15:00 標高3,454m 氷河 & 展望台を満喫', mapsUrl: 'https://maps.google.com/?q=Jungfraujoch+Switzerland' },
-        { walk: 'ユングフラウ鉄道（下山）約 2時間', walkIcon: '🚞' },
-        { icon: '🏘', name: 'インターラーケン 帰着', info: '17:30 頃', mapsUrl: 'https://maps.google.com/?q=Interlaken+Switzerland' },
-      ]
-    }
-  ],
-  venice: [
-    {
-      title: 'Day 5 ルート — ベネチア到着 & 夕方散策',
-      day: '7/8(水)',
-      stops: [
-        { icon: '🚉', name: 'ベネチア・サンタ・ルチア駅 到着', info: '15:00 頃', mapsUrl: 'https://maps.google.com/?q=Venezia+Santa+Lucia+Station' },
-        { walk: '徒歩 約25分 or ヴァポレット（水上バス）', walkIcon: '🚶' },
-        { icon: '🌉', name: 'リアルト橋', info: '夕方 16:30〜 散策', mapsUrl: 'https://maps.google.com/?q=Rialto+Bridge+Venice' },
-        { walk: '徒歩 約15分', walkIcon: '🚶' },
-        { icon: '🎭', name: 'サンマルコ広場', info: '夜景 18:00〜', mapsUrl: "https://maps.google.com/?q=St.+Mark%27s+Square+Venice" },
-        { walk: '徒歩 約1分', walkIcon: '🚶' },
-        { icon: '🦞', name: '夕食（周辺レストラン）', info: '19:30〜', mapsUrl: 'https://maps.google.com/?q=San+Marco+restaurant+Venice' },
-      ]
-    }
-  ],
-  rome: [
-    {
-      title: 'Day 6 ルート — ローマ夜景散策',
-      day: '7/9(木) 夜',
-      stops: [
-        { icon: '🏨', name: 'ホテル出発', info: '17:30', mapsUrl: null },
-        { walk: '徒歩 約10分', walkIcon: '🚶' },
-        { icon: '🌊', name: 'ナヴォーナ広場', info: '17:30〜18:30 四大河の噴水ライトアップ', mapsUrl: 'https://maps.google.com/?q=Piazza+Navona+Rome' },
-        { walk: '徒歩 約5分', walkIcon: '🚶' },
-        { icon: '🏛', name: 'パンテオン（外観）', info: '18:30〜19:00 2,000年前の神殿のライトアップ', mapsUrl: 'https://maps.google.com/?q=Pantheon+Rome' },
-        { walk: '徒歩 約10分', walkIcon: '🚶' },
-        { icon: '⛲', name: 'トレビの泉', info: '19:15〜20:00 コインで再会を誓う', mapsUrl: 'https://maps.google.com/?q=Trevi+Fountain+Rome' },
-        { walk: '徒歩 約10分', walkIcon: '🚶' },
-        { icon: '🏛', name: 'スペイン広場', info: '20:00〜20:30 135段の大階段ライトアップ', mapsUrl: 'https://maps.google.com/?q=Spanish+Steps+Rome' },
-        { walk: '徒歩 約5分', walkIcon: '🚶' },
-        { icon: '🍝', name: '夕食（周辺リストランテ）', info: '21:00〜', mapsUrl: 'https://maps.google.com/?q=restaurant+near+Spanish+Steps+Rome' },
-      ]
-    },
-    {
-      title: 'Day 7 ルート — 古代遺跡 & バチカン',
-      day: '7/10(金)',
-      stops: [
-        { icon: '🏟', name: 'コロッセオ', info: '09:15 入場（事前予約済）', mapsUrl: 'https://maps.google.com/?q=Colosseum+Rome' },
-        { walk: '徒歩 約2分', walkIcon: '🚶' },
-        { icon: '🏛', name: 'フォロ・ロマーノ', info: '10:45〜12:00 共通券で入場', mapsUrl: 'https://maps.google.com/?q=Roman+Forum+Rome' },
-        { walk: '徒歩 約5分', walkIcon: '🚶' },
-        { icon: '🌿', name: 'パラティーノの丘', info: '12:00〜13:00 共通券で入場', mapsUrl: 'https://maps.google.com/?q=Palatine+Hill+Rome' },
-        { walk: 'バス or 地下鉄 A線 約30分', walkIcon: '🚌' },
-        { icon: '🎨', name: 'ヴァチカン美術館', info: '16:00〜17:30 予約済（14:00-16:00ランダム枠）', mapsUrl: 'https://maps.google.com/?q=Vatican+Museums' },
-        { walk: '徒歩 約10分', walkIcon: '🚶' },
-        { icon: '⛪', name: 'サン・ピエトロ広場', info: '夕方 夜景散策', mapsUrl: "https://maps.google.com/?q=St+Peter%27s+Square" },
-      ]
-    },
-    {
-      title: 'Day 8 ルート — 最終日散策',
-      day: '7/11(土)',
-      stops: [
-        { icon: '🌉', name: 'サンタンジェロ橋', info: '09:30 朝の散策', mapsUrl: "https://maps.google.com/?q=Ponte+Sant+Angelo+Rome" },
-        { walk: '徒歩 約1分', walkIcon: '🚶' },
-        { icon: '🏰', name: 'サンタンジェロ城 周辺', info: '09:30〜10:30（外観散策 or 入場）', mapsUrl: "https://maps.google.com/?q=Castel+Sant+Angelo+Rome" },
-        { walk: '徒歩 約20分', walkIcon: '🚶' },
-        { icon: '🛍', name: 'ショッピング（ヴィア・コンドッティ）', info: '11:00〜12:30 高級ブランド街 & お土産', mapsUrl: 'https://maps.google.com/?q=Via+Condotti+Rome' },
-        { walk: 'タクシー or Leonardo Express', walkIcon: '🚕' },
-        { icon: '✈️', name: 'フィウミチーノ空港（FCO）', info: '14:30〜 搭乗手続き', mapsUrl: 'https://maps.google.com/?q=Rome+Fiumicino+Airport' },
-      ]
-    }
-  ]
+const GOURMET = {
+  swiss: {
+    dishes: [
+      { name: 'チーズフォンデュ', nameEn: 'Cheese Fondue', emoji: '🫕', desc: 'グリュイエールとエメンタールを白ワインで溶かした国民食。パンをつけて食べる。インターラーケンでは夏も楽しめる店が多い。' },
+      { name: 'ラクレット', nameEn: 'Raclette', emoji: '🧀', desc: '半輪のチーズを溶かしてジャガイモにかける料理。ピクルスやオニオンと合わせて食べる。スイス山岳地帯発祥。' },
+      { name: 'ロースティ', nameEn: 'Rösti', emoji: '🥔', desc: 'すりおろしたジャガイモを焼いたスイス版ハッシュブラウン。肉料理の付け合わせとして定番。' },
+      { name: 'ベルナープラッテ', nameEn: 'Berner Platte', emoji: '🍖', desc: 'ベルン地方名物の肉盛り合わせ。各種ソーセージ・豚肉・牛肉とザワークラウト、ロースティが一皿に。' },
+      { name: 'スイスチョコレート', nameEn: 'Swiss Chocolate', emoji: '🍫', desc: 'Lindt・Toblerone・Läderach。スーパーで買えるリントがコスパ抜群。高地のミルク使用でクリーミーな味わい。' },
+    ],
+    meals: [
+      {
+        timing: 'Day2 ランチ（7/5）',
+        area: 'インターラーケン市内',
+        icon: '☀️',
+        places: [
+          { name: 'Restaurant Schuh', type: 'カフェ・ビストロ', dish: 'ロースティ・チーズスープ', budget: 'CHF 20〜35', tip: '1921年創業の老舗。ヘーエウェーク通り沿いでアルプスを望む絶好のロケーション。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Schuh+Interlaken' },
+          { name: 'Goldener Anker', type: 'スイス料理', dish: 'チーズフォンデュ・ラクレット', budget: 'CHF 25〜45', tip: '地元民にも人気のフォンデュ店。夏でも本格フォンデュが楽しめる。', mapsUrl: 'https://maps.google.com/?q=Goldener+Anker+Interlaken' },
+        ]
+      },
+      {
+        timing: 'Day2 ディナー（7/5）',
+        area: 'インターラーケン市内（ハーダークルム下山後）',
+        icon: '🌙',
+        places: [
+          { name: 'Restaurant Laterne', type: 'スイス料理', dish: 'ベルナープラッテ・地ビール', budget: 'CHF 28〜50', tip: 'ローカルな雰囲気のスイス料理店。地ビールとビーフシチューが絶品。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Laterne+Interlaken' },
+          { name: 'Pizzeria Mercato', type: 'イタリアン', dish: 'ピザ・パスタ', budget: 'CHF 18〜30', tip: '旅の初日で疲れている時はシンプルなピザが◎。ポーション大きめで地元客も多い。', mapsUrl: 'https://maps.google.com/?q=Pizzeria+Mercato+Interlaken' },
+        ]
+      },
+      {
+        timing: 'Day3 ランチ（7/6）',
+        area: 'ユングフラウヨッホ（標高3,454m）',
+        icon: '☀️',
+        places: [
+          { name: 'Crystal Restaurant', type: 'マウンテンレストラン', dish: 'カレー・スパゲッティ・スープ', budget: 'CHF 22〜38', tip: '世界最高所クラスのレストラン。メニューは限られるが「標高3,454mのランチ」という体験が最高。', mapsUrl: 'https://maps.google.com/?q=Crystal+Restaurant+Jungfraujoch' },
+          { name: 'Bollywood Restaurant', type: 'インド料理（山頂）', dish: 'カレー各種', budget: 'CHF 20〜35', tip: '山頂でインドカレーというギャップが面白い。寒さで冷えた体が温まる。', mapsUrl: 'https://maps.google.com/?q=Jungfraujoch+restaurant' },
+        ]
+      },
+      {
+        timing: 'Day3 ディナー（7/6）',
+        area: 'インターラーケン市内',
+        icon: '🌙',
+        places: [
+          { name: 'Restaurant Bären', type: 'スイス伝統料理', dish: 'ラクレット・ロースティ', budget: 'CHF 25〜45', tip: 'スイス滞在最後の夜におすすめ。伝統的なラクレットを堪能するなら外せない。', mapsUrl: 'https://maps.google.com/?q=Restaurant+Baren+Interlaken' },
+          { name: 'Taverne Interlaken', type: 'スイス・欧州料理', dish: 'チーズフォンデュ・グリル料理', budget: 'CHF 30〜55', tip: '雰囲気の良い石造りの内装。旅の締めくくりにふさわしい一軒。', mapsUrl: 'https://maps.google.com/?q=Taverne+Interlaken' },
+        ]
+      },
+    ]
+  },
+  venice: {
+    dishes: [
+      { name: 'バッカラ・マンテカート', nameEn: 'Baccalà Mantecato', emoji: '🐟', desc: '塩漬けタラをオリーブオイルでクリーム状にしたチチェッティの定番。ポレンタやパンにのせて食べる。' },
+      { name: 'スパゲッティ・アル・ネロ', nameEn: 'Spaghetti al Nero', emoji: '🖤', desc: 'イカ墨パスタ。真っ黒なソースにイカの旨みが凝縮したベネチア料理の象徴的な一皿。' },
+      { name: 'チチェッティ', nameEn: 'Cicchetti', emoji: '🥂', desc: 'ベネチア版タパス。小皿料理と白ワイン（オンブラ）を立ち飲みで楽しむバーカロ文化。1品€1〜3で気軽に。' },
+      { name: 'フリット・ミスト', nameEn: 'Fritto Misto', emoji: '🦐', desc: '海老・イカ・小魚の揚げ盛り合わせ。ベネチアの新鮮なシーフードをカジュアルに楽しめる一皿。' },
+      { name: 'セッペ・イン・ネロ', nameEn: 'Seppie in Nero', emoji: '🦑', desc: 'イカの墨煮込み。ポレンタと合わせるのがベネチア流。香ばしい香りとイカの旨みが絶妙。' },
+    ],
+    meals: [
+      {
+        timing: 'Day4 ディナー（7/7）',
+        area: 'リアルト橋・サンマルコ周辺',
+        icon: '🌙',
+        places: [
+          { name: 'Trattoria alla Madonna', type: 'ベネチア料理（老舗）', dish: 'フリット・ミスト・魚介リゾット', budget: '€35〜55/人', tip: '1954年創業のベネチア老舗。リアルト橋近く。新鮮なシーフードが揃う地元の名店。', mapsUrl: 'https://maps.google.com/?q=Trattoria+alla+Madonna+Venice' },
+          { name: 'Osteria alle Testiere', type: 'シーフード専門店', dish: 'バッカラ・イカ墨パスタ', budget: '€50〜80/人', tip: '超人気店のため要予約。本格ベネチア料理。小さな店なので早めに席の確保を。', mapsUrl: 'https://maps.google.com/?q=Osteria+alle+Testiere+Venice' },
+        ]
+      },
+      {
+        timing: 'Day5 ランチ（7/8）',
+        area: 'リアルト市場周辺（バーカロ巡り）',
+        icon: '☀️',
+        places: [
+          { name: "All'Arco", type: 'バーカロ（立ち飲み）', dish: 'チチェッティ各種・白ワイン（オンブラ）', budget: '€8〜15/人', tip: 'リアルト市場そばのローカル名店。朝〜昼のみ営業。市場の新鮮食材を使ったチチェッティが絶品。', mapsUrl: "https://maps.google.com/?q=All'Arco+Venice" },
+          { name: 'Cantina Do Mori', type: 'バーカロ（最古の酒場）', dish: 'チチェッティ・ワイン', budget: '€10〜18/人', tip: '1462年創業のベネチア最古のバーカロ。立ち飲みでチチェッティをつまみながらワインを一杯。', mapsUrl: 'https://maps.google.com/?q=Cantina+Do+Mori+Venice' },
+        ]
+      },
+      {
+        timing: 'Day5 ディナー（7/8）',
+        area: 'カナレージョ地区・サンマルコ周辺',
+        icon: '🌙',
+        places: [
+          { name: 'Trattoria Corte Sconta', type: 'シーフードレストラン', dish: 'コース料理・新鮮魚介', budget: '€45〜70/人', tip: 'カナレージョ地区の隠れ家的名店。地元の常連も通う本格ベネチア料理。要予約。', mapsUrl: 'https://maps.google.com/?q=Trattoria+Corte+Sconta+Venice' },
+          { name: 'Osteria da Rioba', type: 'ベネチア料理', dish: 'イカ墨パスタ・魚介リゾット', budget: '€35〜55/人', tip: 'カナレージョ運河沿いのテラス席が最高。夕暮れの運河を眺めながらシーフードを堪能できる。', mapsUrl: 'https://maps.google.com/?q=Osteria+da+Rioba+Venice' },
+        ]
+      },
+    ]
+  },
+  rome: {
+    dishes: [
+      { name: 'カルボナーラ', nameEn: 'Carbonara', emoji: '🍝', desc: '本場はグアンチャーレ・ペコリーノ・卵・黒胡椒のみ。生クリーム不使用が正統派。リガトーニで食べるのがローマ流。' },
+      { name: 'カチョ・エ・ペペ', nameEn: 'Cacio e Pepe', emoji: '🧀', desc: 'ペコリーノチーズと黒胡椒だけで作るシンプルなパスタ。素材の質が問われる職人の一皿。ローマの三大パスタのひとつ。' },
+      { name: 'アマトリチャーナ', nameEn: "all'Amatriciana", emoji: '🍅', desc: 'グアンチャーレ・トマト・ペコリーノのパスタ。リガトーニとの組み合わせが正統。ローマっ子のソウルフード。' },
+      { name: 'スプレムータ', nameEn: 'Spremuta', emoji: '🍊', desc: '搾りたてシチリア産オレンジジュース。ローマのバールでは朝から提供。エスプレッソと一緒に朝食の定番。' },
+      { name: 'ジェラート', nameEn: 'Gelato', emoji: '🍦', desc: 'ローマには老舗ジェラテリアが多数。ピスタチオ・ストラッチャテッラ・季節のフルーツ系が特においしい。' },
+    ],
+    meals: [
+      {
+        timing: 'Day6 ディナー（7/9）',
+        area: 'ナヴォーナ広場・パンテオン周辺',
+        icon: '🌙',
+        places: [
+          { name: "Osteria dell'Anima", type: 'ローマ料理', dish: 'カルボナーラ・アマトリチャーナ', budget: '€30〜50/人', tip: 'ナヴォーナ広場から徒歩2分。観光地の割にコスパ良く本格ローマ料理が楽しめる。', mapsUrl: "https://maps.google.com/?q=Osteria+dell'Anima+Rome" },
+          { name: 'Ristorante Fortunato al Pantheon', type: 'ローマ料理（老舗）', dish: 'ローマ料理フルコース', budget: '€45〜70/人', tip: '1975年創業、パンテオン徒歩1分の老舗。政治家や文化人も通う格式あるリストランテ。', mapsUrl: 'https://maps.google.com/?q=Ristorante+Fortunato+al+Pantheon+Rome' },
+        ]
+      },
+      {
+        timing: 'Day7 ランチ（7/10）',
+        area: 'テスタッチョ地区（コロッセオから地下鉄10分）',
+        icon: '☀️',
+        places: [
+          { name: 'Roscioli Salumeria con Cucina', type: 'サルメリア・デリ', dish: 'サルーミ盛り・チーズ・パスタ', budget: '€25〜40/人', tip: '世界中のグルメが訪れる食材の殿堂。テイクアウトも可。ランチは混むので早めに。', mapsUrl: 'https://maps.google.com/?q=Roscioli+Salumeria+Rome' },
+          { name: 'Trattoria da Remo', type: 'ピッツェリア（地元民御用達）', dish: 'ローマ風薄焼きピザ', budget: '€12〜20/人', tip: 'テスタッチョの地元民御用達。ローマスタイルの薄くてパリパリのピザ。行列必至だが回転は速い。', mapsUrl: 'https://maps.google.com/?q=Trattoria+da+Remo+Rome' },
+        ]
+      },
+      {
+        timing: 'Day7 ディナー（7/10）',
+        area: 'トラステヴェレ地区（バチカンから徒歩20分）',
+        icon: '🌙',
+        places: [
+          { name: 'Da Enzo al 29', type: 'ローマ伝統料理', dish: 'カチョ・エ・ペペ・牛テール煮込み', budget: '€30〜50/人', tip: 'トラステヴェレの名店。地元ローマっ子も認める本物のローマ料理。要予約。牛テールの煮込みが絶品。', mapsUrl: 'https://maps.google.com/?q=Da+Enzo+al+29+Rome' },
+          { name: "Osteria dell'Angelo", type: 'ローマ料理（家庭的）', dish: 'アマトリチャーナ・リガトーニ', budget: '€25〜40/人', tip: 'バチカン近くのコスパ最強の食堂。地元民の定食屋的存在。月〜金のみ営業（要事前確認）。', mapsUrl: "https://maps.google.com/?q=Osteria+dell+Angelo+Rome" },
+        ]
+      },
+      {
+        timing: 'Day8 ランチ（7/11）',
+        area: 'ローマ市内（最終日）',
+        icon: '☀️',
+        places: [
+          { name: 'Tonnarello', type: 'トラットリア', dish: 'ローマ3大パスタ食べ比べ', budget: '€25〜40/人', tip: 'ローマ最後の食事に最適。カルボナーラ・カチョエペペ・アマトリチャーナを一通り制覇できる。', mapsUrl: 'https://maps.google.com/?q=Tonnarello+Rome' },
+          { name: 'Gelateria dei Gracchi', type: 'ジェラテリア', dish: 'ピスタチオ・チョコ・フルーツジェラート', budget: '€3〜6/人', tip: 'バチカン近くのローマ屈指の人気ジェラート店。全素材の産地と製法をこだわりの一軒。帰国前の締めに。', mapsUrl: 'https://maps.google.com/?q=Gelateria+dei+Gracchi+Rome' },
+        ]
+      },
+    ]
+  }
 };
 
 /* ============================================================
@@ -986,7 +1030,7 @@ function filterSpots() {
 }
 
 /* ============================================================
-   MAPS / ROUTES  (3 tabs: swiss / venice / rome)
+   GOURMET  (3 tabs: swiss / venice / rome)
    ============================================================ */
 let activeMapsTab = 'swiss';
 
@@ -1018,41 +1062,50 @@ function renderMapsContent() {
   const el = document.getElementById('mapsContent');
   if (!el) return;
 
-  const routes = ROUTES[activeMapsTab] || [];
-  if (!routes.length) {
-    el.innerHTML = `<div class="empty-state"><p class="empty-state-icon">🗺</p><p>後日更新予定</p></div>`;
+  const data = GOURMET[activeMapsTab];
+  if (!data) {
+    el.innerHTML = `<div class="empty-state"><p class="empty-state-icon">🍽</p><p>後日更新予定</p></div>`;
     return;
   }
 
-  el.innerHTML = `<div class="route-container">` +
-    routes.map(route => `
-      <div class="route-section fade-up">
-        <p class="route-section-title">${route.title}
-          <span style="color:var(--text-3);font-weight:400;font-size:12px">${route.day}</span>
-        </p>
-        <div class="route-track">
-          ${route.stops.map(stop => {
-            if (stop.walk) {
-              return `
-                <div class="route-walk">
-                  <div class="route-walk-line"></div>
-                  <span class="route-walk-label">${stop.walkIcon || '🚶'} ${stop.walk}</span>
-                </div>`;
-            }
-            return `
-              <div class="route-stop">
-                <div class="route-dot"></div>
-                <span class="route-stop-icon">${stop.icon}</span>
-                <div class="route-stop-body">
-                  <p class="route-stop-name">${stop.name}</p>
-                  <p class="route-stop-info">${stop.info}</p>
-                  ${stop.mapsUrl ? `<a href="${stop.mapsUrl}" target="_blank" rel="noopener" class="route-stop-link">📍 地図で見る →</a>` : ''}
-                </div>
-              </div>`;
-          }).join('')}
-        </div>
-      </div>`).join('') +
-  `</div>`;
+  el.innerHTML = `
+    <div class="gourmet-container">
+      <p class="gourmet-section-label">🍽 ご当地グルメ</p>
+      <div class="gourmet-dishes">
+        ${data.dishes.map(d => `
+          <div class="dish-chip fade-up">
+            <span class="dish-emoji">${d.emoji}</span>
+            <div class="dish-info">
+              <p class="dish-name">${d.name}</p>
+              <p class="dish-name-en">${d.nameEn}</p>
+              <p class="dish-desc">${d.desc}</p>
+            </div>
+          </div>`).join('')}
+      </div>
+
+      <p class="gourmet-section-label">📍 おすすめレストラン</p>
+      ${data.meals.map(meal => `
+        <div class="gourmet-meal fade-up">
+          <div class="gourmet-meal-header">
+            <span class="gourmet-meal-icon">${meal.icon}</span>
+            <div>
+              <p class="gourmet-meal-timing">${meal.timing}</p>
+              <p class="gourmet-meal-area">📌 ${meal.area}</p>
+            </div>
+          </div>
+          ${meal.places.map(r => `
+            <div class="gourmet-restaurant">
+              <p class="rest-name">${r.name}</p>
+              <p class="rest-type">${r.type}</p>
+              <p class="rest-dish">🍴 ${r.dish}</p>
+              <div class="rest-meta">
+                <span class="rest-budget">💰 ${r.budget}</span>
+                <a href="${r.mapsUrl}" target="_blank" rel="noopener" class="route-stop-link">📍 地図で見る →</a>
+              </div>
+              <p class="rest-tip">💡 ${r.tip}</p>
+            </div>`).join('')}
+        </div>`).join('')}
+    </div>`;
 }
 
 /* ============================================================
