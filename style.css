@@ -140,6 +140,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: opacity 1.8s ease-in-out;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .hero-slide.active { opacity: 1; }
 
@@ -166,12 +167,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* gradient fallbacks (shown when photo is not available) */
-.hero-slide--swiss-alps { background: linear-gradient(160deg, #0a2010 0%, #1a6640 55%, #27ae60 100%); }
-.hero-slide--interlaken { background: linear-gradient(160deg, #062025 0%, #0d5e6e 55%, #17a2b8 100%); }
-.hero-slide--jungfrau   { background: linear-gradient(160deg, #1a2535 0%, #2c5f8a 55%, #8ab4cf 100%); }
-.hero-slide--venice     { background: linear-gradient(160deg, #061525 0%, #1a5276 55%, #1e8bc3 100%); }
-.hero-slide--rome       { background: linear-gradient(160deg, #3d0808 0%, #8B1A1A 55%, #C0392B 100%); }
-.hero-slide--colosseum  { background: linear-gradient(160deg, #2c1810 0%, #7a4f2e 55%, #c4941d 100%); }
+/* background-image: instead of background: to keep cover/no-repeat from .hero-slide */
+.hero-slide--swiss-alps { background-image: linear-gradient(160deg, #0a2010 0%, #1a6640 55%, #27ae60 100%); }
+.hero-slide--interlaken { background-image: linear-gradient(160deg, #062025 0%, #0d5e6e 55%, #17a2b8 100%); }
+.hero-slide--jungfrau   { background-image: linear-gradient(160deg, #1a2535 0%, #2c5f8a 55%, #8ab4cf 100%); }
+.hero-slide--venice     { background-image: linear-gradient(160deg, #061525 0%, #1a5276 55%, #1e8bc3 100%); }
+.hero-slide--rome       { background-image: linear-gradient(160deg, #3d0808 0%, #8B1A1A 55%, #C0392B 100%); }
+.hero-slide--colosseum  { background-image: linear-gradient(160deg, #2c1810 0%, #7a4f2e 55%, #c4941d 100%); }
 
 .hero-content {
   position: relative;

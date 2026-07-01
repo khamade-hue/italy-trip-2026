@@ -1140,7 +1140,11 @@ function initHeroSlideshow() {
     const slide = document.querySelector(`.${cls}`);
     if (!slide) return;
     const img = new Image();
-    img.onload = () => { slide.style.backgroundImage = `url('${src}')`; };
+    img.onload = () => {
+      slide.style.backgroundImage  = `url('${src}')`;
+      slide.style.backgroundSize   = 'cover';
+      slide.style.backgroundRepeat = 'no-repeat';
+    };
     img.src = src;
   });
 
