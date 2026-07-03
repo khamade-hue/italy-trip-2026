@@ -978,6 +978,62 @@ const HOTELS = [
   },
 ];
 
+const STATIONS = [
+  /* ----- SWISS ----- */
+  {
+    id: 'station-interlaken-west',
+    name: 'インターラーケン西駅',
+    nameEn: 'Interlaken West',
+    city: 'swiss',
+    days: 'Day 4',
+    desc: 'Day 4 早朝出発に使う駅。ホテル（レジデンス ユングフラウ）から徒歩約10分。チューリッヒ空港方面はこちら。',
+    trains: [
+      { label: 'SBB → チューリッヒ空港', time: '07:04 発', note: 'Day 4' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Interlaken+West+Bahnhof',
+  },
+  {
+    id: 'station-interlaken-ost',
+    name: 'インターラーケン東駅',
+    nameEn: 'Interlaken Ost',
+    city: 'swiss',
+    days: 'Day 2・3',
+    desc: 'チューリッヒからの到着駅。グリンデルワルト・ユングフラウヨッホへの登山鉄道もここから出発。',
+    trains: [
+      { label: 'SBB チューリッヒ → インターラーケン', time: '10:30 着', note: 'Day 2' },
+      { label: '登山鉄道 → グリンデルワルト方面', time: '08:20 頃', note: 'Day 3' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Interlaken+Ost+Bahnhof',
+  },
+  /* ----- VENICE ----- */
+  {
+    id: 'station-mestre',
+    name: 'ヴェネツィア・メストレ駅',
+    nameEn: 'Venezia Mestre',
+    city: 'venice',
+    days: 'Day 4・6',
+    desc: 'ベネチア本土側の駅。ホテル（Hotel alla Giustizia）から徒歩約15分。Italo高速列車でローマへ向かう出発駅。',
+    trains: [
+      { label: 'Italo 8905 → Firenze S.M.', time: '08:17 発', note: 'Day 6' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Venezia+Mestre+Station',
+  },
+  /* ----- ROME ----- */
+  {
+    id: 'station-termini',
+    name: 'ローマ・テルミニ駅',
+    nameEn: 'Roma Termini',
+    city: 'rome',
+    days: 'Day 6・8',
+    desc: 'ローマの中央駅。Italo高速列車の到着駅。空港へはLeonardo Expressが便利（約32分・€14）。',
+    trains: [
+      { label: 'Italo 8947 着（Firenze発）', time: '14:30 着', note: 'Day 6' },
+      { label: 'Leonardo Express → FCO空港', time: '約32分', note: 'Day 8' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Roma+Termini',
+  },
+];
+
 let activeFilter = 'swiss';
 let activeTypeFilter = 'spots';
 
@@ -995,8 +1051,9 @@ function renderSpotsFilter() {
     { key: 'rome',   label: '🏛 ローマ' },
   ];
   const typeFilters = [
-    { key: 'spots', label: '🗺 観光スポット' },
-    { key: 'hotel', label: '🏨 ホテル' },
+    { key: 'spots',   label: '🗺 観光スポット' },
+    { key: 'hotel',   label: '🏨 ホテル' },
+    { key: 'station', label: '🚉 ステーション' },
   ];
 
   el.innerHTML = `
@@ -1221,7 +1278,33 @@ function renderSpotsGrid() {
       </div>
     </div>`).join('');
 
-  el.innerHTML = spotHtml + hotelHtml;
+  const stationHtml = STATIONS.map(s => `
+    <div class="spot-card station-card fade-up" data-city="${s.city}" data-type="station" id="${s.id}">
+      <div class="spot-header ${s.city}-bg">
+        <span class="spot-emoji" aria-hidden="true">🚉</span>
+        <span class="spot-day-badge">${s.days}</span>
+        <p class="spot-name-en">${s.nameEn}</p>
+        <h3 class="spot-name">${s.name}</h3>
+      </div>
+      <div class="spot-body">
+        <p class="spot-desc">${s.desc}</p>
+        <div class="station-trains">
+          ${s.trains.map(t => `
+          <div class="station-train-row">
+            <div class="station-train-info">
+              <span class="station-train-label">${t.label}</span>
+              <span class="sched-note">${t.note}</span>
+            </div>
+            <span class="station-train-time">${t.time}</span>
+          </div>`).join('')}
+        </div>
+        <div class="spot-actions">
+          <a href="${s.mapsUrl}" target="_blank" rel="noopener" class="btn btn-map">📍 Maps</a>
+        </div>
+      </div>
+    </div>`).join('');
+
+  el.innerHTML = spotHtml + hotelHtml + stationHtml;
 }
 
 function filterSpots() {

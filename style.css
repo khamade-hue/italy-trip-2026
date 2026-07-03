@@ -624,6 +624,41 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .spot-card.hidden { display: none; }
 
+.station-trains {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 16px;
+  padding: 12px;
+  background: var(--bg-alt);
+  border-radius: 10px;
+  border: 1px solid var(--border-sm);
+}
+.station-train-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.station-train-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+.station-train-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-1);
+}
+.station-train-time {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
 .hotel-pin {
   font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
   font-size: 22px;
