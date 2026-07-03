@@ -92,7 +92,7 @@ const DAYS = [
         { time: '06:50', icon: '🚶', name: 'インターラーケン西駅 到着', desc: 'ホテルから徒歩でインターラーケン・ウェスト（West）駅へ' },
         { time: '07:04', icon: '🚆', name: 'インターラーケン西駅 出発', desc: 'SBB鉄道でチューリッヒ空港へ向かう', note: '約2時間10分' },
         { time: '09:14', icon: '🛬', name: 'チューリッヒ空港駅 到着', desc: 'Zürich Flughafen 到着。空港内移動' },
-        { time: '09:00', icon: '🛂', name: '保安検査', desc: '搭乗手続き・保安検査。フランクフルト行きのゲートへ' },
+        { time: '09:40', icon: '🛂', name: '保安検査', desc: '搭乗手続き・保安検査。フランクフルト行きのゲートへ' },
         { time: '11:20', icon: '✈️', name: 'チューリッヒ発（Condor DE4318）', desc: 'Condor DE4318 チューリッヒ → フランクフルト 出発' },
         { time: '12:20', icon: '🛬', name: 'フランクフルト 到着', desc: 'Frankfurt 国際空港 到着。乗換' },
         { time: '14:30', icon: '✈️', name: 'フランクフルト発（Condor DE4235）', desc: 'Condor DE4235 フランクフルト → ベネチア 出発' },
