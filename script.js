@@ -138,14 +138,14 @@ const DAYS = [
     schedule: {
       '午前 — 移動': [
         { time: '07:30', icon: '🍳', name: '朝食・チェックアウト', desc: 'Hotel alla Giustizia にて朝食後、チェックアウト（CO 〜10:30）。スーツケースを持ってメストレ駅へ。' },
-        { time: '08:30', icon: '🚉', name: 'Venezia Mestre 駅 到着', desc: 'スーツケースを持ってメストレ駅へ移動' },
-        { time: '09:20', icon: '🚄', name: '【Italo】Venezia Mestre 発', desc: 'Italo 高速列車 出発（予約済み）', note: '⚠️ 時間要確認', warn: true },
-        { time: '11:20', icon: '🏛', name: '【乗換】Firenze S.M.Novella 着', desc: 'フィレンツェ到着。乗換時間 23分', note: '⚠️ 時間要確認', warn: true },
-        { time: '11:43', icon: '🚄', name: '【Italo】Firenze 発', desc: 'フィレンツェ発 → ローマへ', note: '⚠️ 時間要確認', warn: true },
-        { time: '15:30', icon: '🏟', name: '【到着】Roma Termini', desc: 'ローマ・テルミニ駅 到着', note: '⚠️ 時間要確認', warn: true },
+        { time: '07:50', icon: '🚉', name: 'Venezia Mestre 駅 到着', desc: 'スーツケースを持ってメストレ駅へ移動' },
+        { time: '08:17', icon: '🚄', name: '【Italo 8905】Venezia Mestre 発', desc: 'Italo 8905 出発。6号車 25・26番席', note: '08:17 発' },
+        { time: '10:20', icon: '🏛', name: '【乗換】Firenze S.M.Novella 着', desc: 'フィレンツェ到着。乗換時間 23分', note: '10:20 着' },
+        { time: '10:43', icon: '🚄', name: '【Italo 8947】Firenze 発', desc: 'Italo 8947 出発。6号車 41・42番席 → ローマへ', note: '10:43 発' },
+        { time: '14:30', icon: '🏟', name: '【到着】Roma Termini', desc: 'ローマ・テルミニ駅 到着' },
       ],
       '午後': [
-        { time: '16:00', icon: '🏨', name: 'ホテル チェックイン', desc: 'Terrazza Munira Trastevere チェックイン（CI 15:00〜20:00）。住所：Via Emilio Morosini 14, トラステヴェレ地区。※PIN: 0408' },
+        { time: '15:15', icon: '🏨', name: 'ホテル チェックイン', desc: 'Terrazza Munira Trastevere チェックイン（CI 15:00〜20:00）。住所：Via Emilio Morosini 14, トラステヴェレ地区。※PIN: 0408' },
       ],
       '夜 — 夜景散策': [
         { time: '17:00', icon: '🏛', name: 'パンテオン', desc: '2,000年前の万神殿。夜のライトアップで荘厳な佇まいが際立つ' },
