@@ -1560,7 +1560,6 @@ async function renderWeatherContent() {
     const city = WEATHER_CITIES[activeWeatherTab];
     el.innerHTML = `
       <div class="weather-container">
-        <p class="weather-source">📡 Open-Meteo ／ ${city.sub}地点</p>
         <div class="weather-cards">
           ${time.map((date, i) => {
             const [y, mo, d] = date.split('-').map(Number);
