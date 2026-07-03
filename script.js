@@ -139,10 +139,10 @@ const DAYS = [
       '午前 — 移動': [
         { time: '07:30', icon: '🍳', name: '朝食・チェックアウト', desc: 'Hotel alla Giustizia にて朝食後、チェックアウト（CO 〜10:30）。スーツケースを持ってメストレ駅へ。' },
         { time: '08:30', icon: '🚉', name: 'Venezia Mestre 駅 到着', desc: 'スーツケースを持ってメストレ駅へ移動' },
-        { time: '09:20', icon: '🚄', name: '【Italo】Venezia Mestre 発', desc: 'Italo 高速列車 出発（予約済み）', note: '09:20 発' },
-        { time: '11:20', icon: '🏛', name: '【乗換】Firenze S.M.Novella 着', desc: 'フィレンツェ到着。乗換時間 23分', note: '11:20 着' },
-        { time: '11:43', icon: '🚄', name: '【Italo】Firenze 発', desc: 'フィレンツェ発 → ローマへ', note: '11:43 発' },
-        { time: '15:30', icon: '🏟', name: '【到着】Roma Termini', desc: 'ローマ・テルミニ駅 到着' },
+        { time: '09:20', icon: '🚄', name: '【Italo】Venezia Mestre 発', desc: 'Italo 高速列車 出発（予約済み）', note: '⚠️ 時間要確認', warn: true },
+        { time: '11:20', icon: '🏛', name: '【乗換】Firenze S.M.Novella 着', desc: 'フィレンツェ到着。乗換時間 23分', note: '⚠️ 時間要確認', warn: true },
+        { time: '11:43', icon: '🚄', name: '【Italo】Firenze 発', desc: 'フィレンツェ発 → ローマへ', note: '⚠️ 時間要確認', warn: true },
+        { time: '15:30', icon: '🏟', name: '【到着】Roma Termini', desc: 'ローマ・テルミニ駅 到着', note: '⚠️ 時間要確認', warn: true },
       ],
       '午後': [
         { time: '16:00', icon: '🏨', name: 'ホテル チェックイン', desc: 'Terrazza Munira Trastevere チェックイン（CI 15:00〜20:00）。住所：Via Emilio Morosini 14, トラステヴェレ地区。※PIN: 0408' },
@@ -914,7 +914,8 @@ function renderScheduleContent() {
             <div class="sched-body">
               <p class="sched-name">${ev.name}</p>
               ${ev.desc ? `<p class="sched-desc">${ev.desc}</p>` : ''}
-              ${ev.note ? `<span class="sched-note">${ev.note}</span>` : ''}
+              ${ev.note ? `<span class="sched-note${ev.warn ? ' sched-note--warn' : ''}">${ev.note}</span>` : ''}
+              ${ev.warn && !ev.note ? `<span class="sched-note sched-note--warn">⚠️ 時間要確認</span>` : ''}
             </div>
           </div>`).join('')}
       </div>`;

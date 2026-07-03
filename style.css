@@ -559,6 +559,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: 100px;
   margin-top: 6px;
 }
+.sched-note--warn {
+  background: rgba(251,146,60,.15);
+  color: #f97316;
+}
 
 /* ============================================================
    FILTER TABS
