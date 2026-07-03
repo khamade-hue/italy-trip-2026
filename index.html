@@ -68,6 +68,19 @@
         <span class="scroll-label">スクロール</span>
         <span class="scroll-chevron" aria-hidden="true">⌄</span>
       </a>
+
+      <!-- HOME WEATHER -->
+      <div class="home-weather">
+        <div class="container">
+          <header class="section-header fade-up">
+            <p class="section-eyebrow">WEATHER</p>
+            <h2 class="section-title">天気予報</h2>
+            <p class="section-desc">旅行期間中の各都市の天気</p>
+          </header>
+          <div id="weatherTabs" role="tablist" aria-label="天気タブ"></div>
+          <div id="weatherContent" aria-live="polite"></div>
+        </div>
+      </div>
     </section>
 
     <!-- OVERVIEW -->
@@ -121,18 +134,6 @@
       </div>
     </section>
 
-    <!-- WEATHER -->
-    <section class="section" id="weather" aria-label="天気予報">
-      <div class="container">
-        <header class="section-header fade-up">
-          <p class="section-eyebrow">WEATHER</p>
-          <h2 class="section-title">天気予報</h2>
-          <p class="section-desc">旅行期間中の各都市の天気</p>
-        </header>
-        <div id="weatherTabs" role="tablist" aria-label="天気タブ"></div>
-        <div id="weatherContent" aria-live="polite"></div>
-      </div>
-    </section>
 
   </main>
 
@@ -173,12 +174,6 @@
         <line x1="14" y1="1" x2="14" y2="4"/>
       </svg>
       <span>グルメ</span>
-    </a>
-    <a href="#weather" class="bnav-item" data-section="weather" aria-label="天気">
-      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
-      </svg>
-      <span>天気</span>
     </a>
   </nav>
 

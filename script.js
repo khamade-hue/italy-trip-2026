@@ -1636,7 +1636,7 @@ function initBottomNav() {
   const items  = document.querySelectorAll('.bnav-item');
   const navMap = {
     home: 'home', overview: 'overview', schedule: 'overview',
-    spots: 'spots', maps: 'maps', weather: 'weather'
+    spots: 'spots', maps: 'maps'
   };
 
   const io = new IntersectionObserver(entries => {
@@ -1649,7 +1649,7 @@ function initBottomNav() {
     });
   }, { threshold: 0.35, rootMargin: '-10% 0px -50% 0px' });
 
-  ['home','overview','schedule','spots','maps','weather'].forEach(id => {
+  ['home','overview','schedule','spots','maps'].forEach(id => {
     const el = document.getElementById(id);
     if (el) io.observe(el);
   });

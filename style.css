@@ -565,6 +565,35 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* ============================================================
+   HOME WEATHER BLOCK (inside #home, on hero background)
+   ============================================================ */
+.home-weather {
+  position: relative;
+  z-index: 1;
+  padding: 56px 0 80px;
+  background: rgba(8, 4, 4, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+.home-weather .section-eyebrow { color: var(--accent); }
+.home-weather .section-title,
+.home-weather .section-desc { color: var(--text-1); }
+.home-weather .filter-tab {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.1);
+  color: var(--text-2);
+}
+.home-weather .filter-tab:hover {
+  background: rgba(255,255,255,0.1);
+}
+.home-weather .filter-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+
+/* ============================================================
    FILTER TABS
    ============================================================ */
 .filter-tabs {
