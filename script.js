@@ -1580,7 +1580,6 @@ async function renderWeatherContent() {
               </div>`;
           }).join('')}
         </div>
-        <p class="weather-note">※ 予報は変わる場合があります。出発前に最新情報をご確認ください。</p>
       </div>`;
     observeFadeUps(el);
   } catch {
