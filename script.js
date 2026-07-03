@@ -1076,11 +1076,26 @@ const STATIONS = [
     nameEn: 'Venezia Mestre',
     city: 'venice',
     days: 'Day 4・6',
-    desc: 'ベネチア本土側の駅。ホテル（Hotel alla Giustizia）から徒歩約15分。Italo高速列車でローマへ向かう出発駅。',
+    desc: 'ベネチア本土側の駅。ホテル（Hotel alla Giustizia）から徒歩約15分。Italo高速列車でローマへ向かう出発駅。本島（サンタ・ルチア駅）へは普通列車で約10分。',
     trains: [
+      { label: '普通列車 → ヴェネツィア・サンタ・ルチア', time: '約10分', note: 'Day 4・5' },
       { label: 'Italo 8905 → Firenze S.M.', time: '08:17 発', note: 'Day 6' },
     ],
     mapsUrl: 'https://maps.google.com/?q=Venezia+Mestre+Station',
+  },
+  {
+    id: 'station-santa-lucia',
+    name: 'ヴェネツィア・サンタ・ルチア駅',
+    nameEn: 'Venezia Santa Lucia',
+    city: 'venice',
+    days: 'Day 4・5',
+    desc: 'ベネチア本島の玄関口。駅を出ると目の前に大運河が広がる。リアルト橋・サン・マルコ広場へは徒歩 or 水上バス（ヴァポレット）でアクセス。',
+    trains: [
+      { label: '普通列車 メストレ → 到着', time: '約10分', note: 'Day 4・5' },
+      { label: '水上バス 1番線 → リアルト橋', time: '約25分', note: '' },
+      { label: '水上バス 1番線 → サン・マルコ広場', time: '約40分', note: '' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Venezia+Santa+Lucia+Station',
   },
   /* ----- ROME ----- */
   {
