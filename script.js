@@ -931,29 +931,100 @@ function renderScheduleContent() {
 /* ============================================================
    SPOTS FILTER + GRID
    ============================================================ */
+const HOTELS = [
+  {
+    id: 'hotel-swiss',
+    name: 'レジデンス ユングフラウ',
+    nameEn: 'Residence Jungfrau',
+    city: 'swiss',
+    days: 'Day 2–3',
+    address: 'Seestrasse 10, Interlaken',
+    checkin: '7/5(日)  16:00〜21:30',
+    checkout: '7/7(火)  07:00〜10:00',
+    bookingNo: '5346.342.781',
+    pin: '1378',
+    mapsUrl: 'https://maps.google.com/?q=Residence+Jungfrau+Seestrasse+10+Interlaken',
+  },
+  {
+    id: 'hotel-venice',
+    name: 'Hotel alla Giustizia',
+    nameEn: 'Hotel alla Giustizia',
+    city: 'venice',
+    days: 'Day 4–5',
+    address: 'Via Miranese 111, Mestre',
+    note: 'ベネチア本島へは鉄道・バスで約15分',
+    checkin: '7/7(火)  15:00〜23:30',
+    checkout: '7/9(木)  〜10:30',
+    bookingNo: '5835.334.674',
+    pin: '4310',
+    mapsUrl: 'https://maps.google.com/?q=Hotel+alla+Giustizia+Via+Miranese+111+Mestre',
+  },
+  {
+    id: 'hotel-rome',
+    name: 'Terrazza Munira Trastevere',
+    nameEn: 'Terrazza Munira Trastevere',
+    city: 'rome',
+    days: 'Day 6–7',
+    address: 'Via Emilio Morosini 14, Trastevere',
+    checkin: '7/9(木)  15:00〜20:00',
+    checkout: '7/11(土) 06:00〜10:00',
+    bookingNo: '5669.298.430',
+    pin: '0408',
+    mapsUrl: 'https://maps.google.com/?q=Via+Emilio+Morosini+14+Trastevere+Rome',
+  },
+];
+
 let activeFilter = 'swiss';
+let activeTypeFilter = 'spots';
 
 function renderSpotsFilter() {
   const el = document.getElementById('spotsFilter');
   if (!el) return;
 
-  const filters = [
+  el.removeAttribute('role');
+  el.removeAttribute('aria-label');
+  el.className = 'spots-filter-wrap';
+
+  const cityFilters = [
     { key: 'swiss',  label: '🏔 スイス' },
     { key: 'venice', label: '🎭 ベネチア' },
     { key: 'rome',   label: '🏛 ローマ' },
   ];
+  const typeFilters = [
+    { key: 'spots', label: '🗺 観光スポット' },
+    { key: 'hotel', label: '🏨 ホテル' },
+  ];
 
-  el.className = 'filter-tabs';
-  el.innerHTML = filters.map(f => `
-    <button class="filter-tab${activeFilter === f.key ? ' active' : ''}" data-filter="${f.key}" role="tab" aria-selected="${activeFilter === f.key}">
-      ${f.label}
-    </button>`).join('');
+  el.innerHTML = `
+    <div class="filter-tabs" id="spotsCity" role="tablist" aria-label="都市フィルター">
+      ${cityFilters.map(f => `
+        <button class="filter-tab${activeFilter === f.key ? ' active' : ''}" data-filter="${f.key}" role="tab" aria-selected="${activeFilter === f.key}">
+          ${f.label}
+        </button>`).join('')}
+    </div>
+    <div class="filter-tabs filter-tabs--type" id="spotsType" role="tablist" aria-label="種別フィルター">
+      ${typeFilters.map(f => `
+        <button class="filter-tab${activeTypeFilter === f.key ? ' active' : ''}" data-type="${f.key}" role="tab" aria-selected="${activeTypeFilter === f.key}">
+          ${f.label}
+        </button>`).join('')}
+    </div>`;
 
-  el.querySelectorAll('.filter-tab').forEach(btn => {
+  el.querySelectorAll('#spotsCity .filter-tab').forEach(btn => {
     btn.addEventListener('click', () => {
       activeFilter = btn.dataset.filter;
-      el.querySelectorAll('.filter-tab').forEach(b => {
+      el.querySelectorAll('#spotsCity .filter-tab').forEach(b => {
         b.classList.toggle('active', b.dataset.filter === activeFilter);
+        b.setAttribute('aria-selected', b.classList.contains('active'));
+      });
+      filterSpots();
+    });
+  });
+
+  el.querySelectorAll('#spotsType .filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTypeFilter = btn.dataset.type;
+      el.querySelectorAll('#spotsType .filter-tab').forEach(b => {
+        b.classList.toggle('active', b.dataset.type === activeTypeFilter);
         b.setAttribute('aria-selected', b.classList.contains('active'));
       });
       filterSpots();
@@ -1008,7 +1079,7 @@ function renderSpotsGrid() {
   if (!el) return;
 
   el.className = 'spots-grid';
-  el.innerHTML = SPOTS.map(spot => {
+  const spotHtml = SPOTS.map(spot => {
     const bg = `${spot.city}-bg`;
     const photo = SPOT_PHOTOS[spot.id];
     const ticketBadge = spot.ticketType === 'free'
@@ -1022,7 +1093,7 @@ function renderSpotsGrid() {
       : '';
 
     return `
-      <div class="spot-card fade-up" data-city="${spot.city}" id="spot-${spot.id}">
+      <div class="spot-card fade-up" data-city="${spot.city}" data-type="spots" id="spot-${spot.id}">
         <div class="spot-header ${bg}${photo ? ' has-photo' : ''}"${photo ? ` data-photo="${photo}"` : ''}>
           <span class="spot-emoji" aria-hidden="true">${spot.emoji}</span>
           <span class="spot-day-badge">Day ${spot.day}</span>
@@ -1085,11 +1156,75 @@ function renderSpotsGrid() {
         </div>
       </div>`;
   }).join('');
+
+  const hotelHtml = HOTELS.map(hotel => `
+    <div class="spot-card hotel-card fade-up" data-city="${hotel.city}" data-type="hotel" id="${hotel.id}">
+      <div class="spot-header ${hotel.city}-bg">
+        <span class="spot-emoji" aria-hidden="true">🏨</span>
+        <span class="spot-day-badge">${hotel.days}</span>
+        <p class="spot-name-en">${hotel.nameEn}</p>
+        <h3 class="spot-name">${hotel.name}</h3>
+      </div>
+      <div class="spot-body">
+        <div class="spot-info-grid">
+          <div class="info-item full-width">
+            <span class="info-icon">📍</span>
+            <div>
+              <p class="info-label">住所</p>
+              <p class="info-value">${hotel.address}</p>
+            </div>
+          </div>
+          ${hotel.note ? `
+          <div class="info-item full-width">
+            <span class="info-icon">ℹ️</span>
+            <div>
+              <p class="info-label">アクセス</p>
+              <p class="info-value">${hotel.note}</p>
+            </div>
+          </div>` : ''}
+          <div class="info-item">
+            <span class="info-icon">🔑</span>
+            <div>
+              <p class="info-label">チェックイン</p>
+              <p class="info-value">${hotel.checkin}</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">🧳</span>
+            <div>
+              <p class="info-label">チェックアウト</p>
+              <p class="info-value">${hotel.checkout}</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📋</span>
+            <div>
+              <p class="info-label">予約番号</p>
+              <p class="info-value">${hotel.bookingNo}</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">🔐</span>
+            <div>
+              <p class="info-label">PIN</p>
+              <p class="info-value hotel-pin">${hotel.pin}</p>
+            </div>
+          </div>
+        </div>
+        <div class="spot-actions">
+          <a href="${hotel.mapsUrl}" target="_blank" rel="noopener" class="btn btn-map">📍 Maps</a>
+        </div>
+      </div>
+    </div>`).join('');
+
+  el.innerHTML = spotHtml + hotelHtml;
 }
 
 function filterSpots() {
   document.querySelectorAll('#spotsGrid .spot-card').forEach(card => {
-    card.classList.toggle('hidden', card.dataset.city !== activeFilter);
+    const cityMatch = card.dataset.city === activeFilter;
+    const typeMatch = card.dataset.type === activeTypeFilter;
+    card.classList.toggle('hidden', !(cityMatch && typeMatch));
   });
 }
 

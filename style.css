@@ -591,6 +591,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   box-shadow: 0 4px 12px var(--accent-glow);
 }
 
+.spots-filter-wrap .filter-tabs:first-child { margin-bottom: 8px; }
+.filter-tabs--type .filter-tab {
+  font-size: 13px;
+  padding: 6px 16px;
+}
+
 /* ============================================================
    SPOTS GRID
    ============================================================ */
@@ -613,6 +619,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   box-shadow: var(--sh-xl);
 }
 .spot-card.hidden { display: none; }
+
+.hotel-pin {
+  font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--accent);
+}
 
 .spot-header {
   position: relative;
