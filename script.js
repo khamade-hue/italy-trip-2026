@@ -981,16 +981,18 @@ const HOTELS = [
 const STATIONS = [
   /* ----- SWISS ----- */
   {
-    id: 'station-interlaken-west',
-    name: 'インターラーケン西駅',
-    nameEn: 'Interlaken West',
+    id: 'station-zurich-airport',
+    name: 'チューリッヒ空港駅',
+    nameEn: 'Zürich Flughafen',
     city: 'swiss',
-    days: 'Day 4',
-    desc: 'Day 4 早朝出発に使う駅。ホテル（レジデンス ユングフラウ）から徒歩約10分。チューリッヒ空港方面はこちら。',
+    days: 'Day 2・4',
+    desc: '空港地下に直結するSBB駅。到着後すぐに電車へ乗り換えられる。インターラーケンまでベルン乗換で約2時間。',
     trains: [
-      { label: 'SBB → チューリッヒ空港', time: '07:04 発', note: 'Day 4' },
+      { label: 'SBB 到着（アブダビ経由）', time: '07:10 着', note: 'Day 2' },
+      { label: 'SBB → インターラーケン東駅（ベルン乗換）', time: '08:32 発', note: 'Day 2' },
+      { label: 'SBB インターラーケン西発 → 到着', time: '09:14 着', note: 'Day 4' },
     ],
-    mapsUrl: 'https://maps.google.com/?q=Interlaken+West+Bahnhof',
+    mapsUrl: 'https://maps.google.com/?q=Zürich+Airport+Bahnhof',
   },
   {
     id: 'station-interlaken-ost',
@@ -998,12 +1000,74 @@ const STATIONS = [
     nameEn: 'Interlaken Ost',
     city: 'swiss',
     days: 'Day 2・3',
-    desc: 'チューリッヒからの到着駅。グリンデルワルト・ユングフラウヨッホへの登山鉄道もここから出発。',
+    desc: 'チューリッヒからの到着駅。グリンデルワルト・ユングフラウヨッホへの登山鉄道の起点でもある。',
     trains: [
       { label: 'SBB チューリッヒ → インターラーケン', time: '10:30 着', note: 'Day 2' },
-      { label: '登山鉄道 → グリンデルワルト方面', time: '08:20 頃', note: 'Day 3' },
+      { label: '登山鉄道 → グリンデルワルト', time: '08:20 頃発', note: 'Day 3' },
     ],
     mapsUrl: 'https://maps.google.com/?q=Interlaken+Ost+Bahnhof',
+  },
+  {
+    id: 'station-interlaken-west',
+    name: 'インターラーケン西駅',
+    nameEn: 'Interlaken West',
+    city: 'swiss',
+    days: 'Day 4',
+    desc: 'Day 4 早朝出発に使う駅。ホテル（レジデンス ユングフラウ）から徒歩約10分。ハーダークルムのふもと駅もすぐ近く。',
+    trains: [
+      { label: 'SBB → チューリッヒ空港（ベルン乗換）', time: '07:04 発', note: 'Day 4' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Interlaken+West+Bahnhof',
+  },
+  {
+    id: 'station-grindelwald',
+    name: 'グリンデルワルト駅',
+    nameEn: 'Grindelwald',
+    city: 'swiss',
+    days: 'Day 3',
+    desc: 'インターラーケン東駅から登山鉄道で約35分。アイガー北壁を仰ぐ絶景の村の玄関口。グリンデルワルト・ターミナルへは徒歩約15分。',
+    trains: [
+      { label: '登山鉄道 インターラーケン東 → 到着', time: '08:20 着', note: 'Day 3' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Grindelwald+Bahnhof',
+  },
+  {
+    id: 'station-grindelwald-terminal',
+    name: 'グリンデルワルト・ターミナル',
+    nameEn: 'Grindelwald Terminal',
+    city: 'swiss',
+    days: 'Day 3',
+    desc: 'アイガー・エクスプレス（大型ゴンドラ）の出発駅。2020年開業の新ルートで約15分でアイガーグレッチャーへ。ここからユングフラウヨッホへ最速アクセス。',
+    trains: [
+      { label: 'Eiger Express → アイガーグレッチャー経由ユングフラウヨッホ', time: '09:17 発', note: 'Day 3' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Grindelwald+Terminal',
+  },
+  {
+    id: 'station-jungfraujoch',
+    name: 'ユングフラウヨッホ駅',
+    nameEn: 'Jungfraujoch',
+    city: 'swiss',
+    days: 'Day 3',
+    desc: 'ヨーロッパ最高所の鉄道駅（標高3,454m）。スフィンクス展望台・氷の宮殿・雪原が目の前に広がる。高山病対策として到着後はゆっくり行動を。',
+    trains: [
+      { label: 'Eiger Express 到着', time: '10:15 着', note: 'Day 3' },
+      { label: 'ユングフラウ鉄道 → ラウターブルンネン方面', time: '14:00 頃発', note: 'Day 3' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Jungfraujoch+Top+of+Europe',
+  },
+  {
+    id: 'station-lauterbrunnen',
+    name: 'ラウターブルンネン駅',
+    nameEn: 'Lauterbrunnen',
+    city: 'swiss',
+    days: 'Day 3',
+    desc: '「滝の谷」の玄関口。ユングフラウから下山後の拠点。シュタウプバッハ滝（高さ297m）が駅のすぐそばに。BLS鉄道でインターラーケン東駅へ約20分。',
+    trains: [
+      { label: 'ユングフラウ鉄道 到着', time: '15:20 着', note: 'Day 3' },
+      { label: 'BLS鉄道 → インターラーケン東駅', time: '17:30 頃発', note: 'Day 3' },
+    ],
+    mapsUrl: 'https://maps.google.com/?q=Lauterbrunnen+Bahnhof',
   },
   /* ----- VENICE ----- */
   {
