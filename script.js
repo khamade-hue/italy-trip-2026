@@ -87,10 +87,11 @@ const DAYS = [
     tags: ['✈️ Condor DE4318', '✈️ Condor DE4235', '🇮🇹 ベネチア到着', '🌉 リアルト橋', '🏨 Hotel alla Giustizia'],
     schedule: {
       '早朝 — 出発': [
-        { time: '05:30', icon: '⏰', name: '起床', desc: '早朝出発のため前夜に荷造りを済ませておく' },
-        { time: '06:00', icon: '🧳', name: 'ホテル チェックアウト', desc: 'レジデンス ユングフラウ チェックアウト（CO 07:00〜10:00）。スーツケースをまとめて出発。' },
-        { time: '06:04', icon: '🚆', name: 'インターラーケン 出発', desc: 'SBB鉄道でチューリッヒ空港へ向かう', note: '約2.5時間' },
-        { time: '08:30', icon: '✈️', name: 'チューリッヒ空港 到着', desc: 'Zürich Flughafen 到着。空港内移動' },
+        { time: '06:00', icon: '⏰', name: '起床', desc: '前夜に荷造りを済ませておく' },
+        { time: '06:40', icon: '🧳', name: 'ホテル チェックアウト', desc: 'レジデンス ユングフラウ チェックアウト。スーツケースをまとめて出発。' },
+        { time: '06:50', icon: '🚶', name: 'インターラーケン西駅 到着', desc: 'ホテルから徒歩でインターラーケン・ウェスト（West）駅へ' },
+        { time: '07:04', icon: '🚆', name: 'インターラーケン西駅 出発', desc: 'SBB鉄道でチューリッヒ空港へ向かう', note: '約2時間10分' },
+        { time: '09:14', icon: '🛬', name: 'チューリッヒ空港駅 到着', desc: 'Zürich Flughafen 到着。空港内移動' },
         { time: '09:00', icon: '🛂', name: '保安検査', desc: '搭乗手続き・保安検査。フランクフルト行きのゲートへ' },
         { time: '11:20', icon: '✈️', name: 'チューリッヒ発（Condor DE4318）', desc: 'Condor DE4318 チューリッヒ → フランクフルト 出発' },
         { time: '12:20', icon: '🛬', name: 'フランクフルト 到着', desc: 'Frankfurt 国際空港 到着。乗換' },
